@@ -12,7 +12,6 @@ import "./Interfaces/ILPTokenWrapper.sol";
 import "./Interfaces/IUnipool.sol";
 import "../Dependencies/console.sol";
 
-
 // Adapted from: https://github.com/Synthetixio/Unipool/blob/master/contracts/Unipool.sol
 // Some more useful references:
 // Synthetix proposal: https://sips.synthetix.io/sips/sip-31
@@ -72,7 +71,7 @@ contract LPTokenWrapper is ILPTokenWrapper {
  * or first liquidity provider stakes UNIv2 LP tokens into it.
  */
 contract Unipool is LPTokenWrapper, Ownable, CheckContract, IUnipool {
-    string constant public NAME = "Unipool";
+    string public constant NAME = "Unipool";
 
     uint256 public duration;
     ILQTYToken public lqtyToken;
@@ -92,11 +91,7 @@ contract Unipool is LPTokenWrapper, Ownable, CheckContract, IUnipool {
     event RewardPaid(address indexed user, uint256 reward);
 
     // initialization function
-    function setParams(
-        address _lqtyTokenAddress,
-        address _uniTokenAddress,
-        uint _duration
-    )
+    function setParams(address _lqtyTokenAddress, address _uniTokenAddress, uint256 _duration)
         external
         override
         onlyOwner
@@ -126,23 +121,16 @@ contract Unipool is LPTokenWrapper, Ownable, CheckContract, IUnipool {
         if (totalSupply() == 0) {
             return rewardPerTokenStored;
         }
-        return
-            rewardPerTokenStored.add(
-                lastTimeRewardApplicable()
-                    .sub(lastUpdateTime)
-                    .mul(rewardRate)
-                    .mul(1e18)
-                    .div(totalSupply())
-            );
+        return rewardPerTokenStored.add(
+            lastTimeRewardApplicable().sub(lastUpdateTime).mul(rewardRate).mul(1e18).div(totalSupply())
+        );
     }
 
     // Returns the amount that an account can claim
     function earned(address account) public view override returns (uint256) {
-        return
-            balanceOf(account)
-                .mul(rewardPerToken().sub(userRewardPerTokenPaid[account]))
-                .div(1e18)
-                .add(rewards[account]);
+        return balanceOf(account).mul(rewardPerToken().sub(userRewardPerTokenPaid[account])).div(1e18).add(
+            rewards[account]
+        );
     }
 
     // stake visibility is public as overriding LPTokenWrapper's stake() function

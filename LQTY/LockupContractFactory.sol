@@ -24,21 +24,23 @@ import "../Dependencies/console.sol";
 */
 
 contract LockupContractFactory is ILockupContractFactory, Ownable, CheckContract {
-    using SafeMath for uint;
+    using SafeMath for uint256;
 
     // --- Data ---
-    string constant public NAME = "LockupContractFactory";
+    string public constant NAME = "LockupContractFactory";
 
-    uint constant public SECONDS_IN_ONE_YEAR = 31536000;
+    uint256 public constant SECONDS_IN_ONE_YEAR = 31536000;
 
     address public lqtyTokenAddress;
-    
-    mapping (address => address) public lockupContractToDeployer;
+
+    mapping(address => address) public lockupContractToDeployer;
 
     // --- Events ---
 
     event LQTYTokenAddressSet(address _lqtyTokenAddress);
-    event LockupContractDeployedThroughFactory(address _lockupContractAddress, address _beneficiary, uint _unlockTime, address _deployer);
+    event LockupContractDeployedThroughFactory(
+        address _lockupContractAddress, address _beneficiary, uint256 _unlockTime, address _deployer
+    );
 
     // --- Functions ---
 
@@ -51,13 +53,10 @@ contract LockupContractFactory is ILockupContractFactory, Ownable, CheckContract
         _renounceOwnership();
     }
 
-    function deployLockupContract(address _beneficiary, uint _unlockTime) external override {
+    function deployLockupContract(address _beneficiary, uint256 _unlockTime) external override {
         address lqtyTokenAddressCached = lqtyTokenAddress;
         _requireLQTYAddressIsSet(lqtyTokenAddressCached);
-        LockupContract lockupContract = new LockupContract(
-                                                        lqtyTokenAddressCached,
-                                                        _beneficiary, 
-                                                        _unlockTime);
+        LockupContract lockupContract = new LockupContract(lqtyTokenAddressCached, _beneficiary, _unlockTime);
 
         lockupContractToDeployer[address(lockupContract)] = msg.sender;
         emit LockupContractDeployedThroughFactory(address(lockupContract), _beneficiary, _unlockTime, msg.sender);

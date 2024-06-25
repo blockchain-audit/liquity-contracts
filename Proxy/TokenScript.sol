@@ -5,9 +5,8 @@ pragma solidity 0.6.11;
 import "../Dependencies/CheckContract.sol";
 import "../Dependencies/IERC20.sol";
 
-
 contract TokenScript is CheckContract {
-    string constant public NAME = "TokenScript";
+    string public constant NAME = "TokenScript";
 
     IERC20 immutable token;
 

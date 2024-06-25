@@ -17,35 +17,28 @@ import "../Interfaces/ILQTYToken.sol";
 * enter circulating supply and cannot be staked to earn system revenue.
 */
 contract LockupContract {
-    using SafeMath for uint;
+    using SafeMath for uint256;
 
     // --- Data ---
-    string constant public NAME = "LockupContract";
+    string public constant NAME = "LockupContract";
 
-    uint constant public SECONDS_IN_ONE_YEAR = 31536000; 
+    uint256 public constant SECONDS_IN_ONE_YEAR = 31536000;
 
     address public immutable beneficiary;
 
     ILQTYToken public lqtyToken;
 
     // Unlock time is the Unix point in time at which the beneficiary can withdraw.
-    uint public unlockTime;
+    uint256 public unlockTime;
 
     // --- Events ---
 
-    event LockupContractCreated(address _beneficiary, uint _unlockTime);
-    event LockupContractEmptied(uint _LQTYwithdrawal);
+    event LockupContractCreated(address _beneficiary, uint256 _unlockTime);
+    event LockupContractEmptied(uint256 _LQTYwithdrawal);
 
     // --- Functions ---
 
-    constructor 
-    (
-        address _lqtyTokenAddress, 
-        address _beneficiary, 
-        uint _unlockTime
-    )
-        public 
-    {
+    constructor(address _lqtyTokenAddress, address _beneficiary, uint256 _unlockTime) public {
         lqtyToken = ILQTYToken(_lqtyTokenAddress);
 
         /*
@@ -54,8 +47,8 @@ contract LockupContract {
         */
         _requireUnlockTimeIsAtLeastOneYearAfterSystemDeployment(_unlockTime);
         unlockTime = _unlockTime;
-        
-        beneficiary =  _beneficiary;
+
+        beneficiary = _beneficiary;
         emit LockupContractCreated(_beneficiary, _unlockTime);
     }
 
@@ -64,7 +57,7 @@ contract LockupContract {
         _requireLockupDurationHasPassed();
 
         ILQTYToken lqtyTokenCached = lqtyToken;
-        uint LQTYBalance = lqtyTokenCached.balanceOf(address(this));
+        uint256 LQTYBalance = lqtyTokenCached.balanceOf(address(this));
         lqtyTokenCached.transfer(beneficiary, LQTYBalance);
         emit LockupContractEmptied(LQTYBalance);
     }
@@ -79,8 +72,11 @@ contract LockupContract {
         require(block.timestamp >= unlockTime, "LockupContract: The lockup duration must have passed");
     }
 
-    function _requireUnlockTimeIsAtLeastOneYearAfterSystemDeployment(uint _unlockTime) internal view {
-        uint systemDeploymentTime = lqtyToken.getDeploymentStartTime();
-        require(_unlockTime >= systemDeploymentTime.add(SECONDS_IN_ONE_YEAR), "LockupContract: unlock time must be at least one year after system deployment");
+    function _requireUnlockTimeIsAtLeastOneYearAfterSystemDeployment(uint256 _unlockTime) internal view {
+        uint256 systemDeploymentTime = lqtyToken.getDeploymentStartTime();
+        require(
+            _unlockTime >= systemDeploymentTime.add(SECONDS_IN_ONE_YEAR),
+            "LockupContract: unlock time must be at least one year after system deployment"
+        );
     }
 }

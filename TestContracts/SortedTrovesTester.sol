@@ -4,7 +4,6 @@ pragma solidity 0.6.11;
 
 import "../Interfaces/ISortedTroves.sol";
 
-
 contract SortedTrovesTester {
     ISortedTroves sortedTroves;
 
@@ -24,11 +23,11 @@ contract SortedTrovesTester {
         sortedTroves.reInsert(_id, _newNICR, _prevId, _nextId);
     }
 
-    function getNominalICR(address) external pure returns (uint) {
+    function getNominalICR(address) external pure returns (uint256) {
         return 1;
     }
 
-    function getCurrentICR(address, uint) external pure returns (uint) {
+    function getCurrentICR(address, uint256) external pure returns (uint256) {
         return 1;
     }
 }

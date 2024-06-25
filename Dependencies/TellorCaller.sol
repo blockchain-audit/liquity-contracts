@@ -15,12 +15,13 @@ import "./SafeMath.sol";
 * https://github.com/tellor-io/usingtellor/blob/master/contracts/UsingTellor.sol
 *
 */
+
 contract TellorCaller is ITellorCaller {
     using SafeMath for uint256;
 
     ITellor public tellor;
 
-    constructor (address _tellorMasterAddress) public {
+    constructor(address _tellorMasterAddress) public {
         tellor = ITellor(_tellorMasterAddress);
     }
 
@@ -37,15 +38,10 @@ contract TellorCaller is ITellorCaller {
         external
         view
         override
-        returns (
-            bool ifRetrieve,
-            uint256 value,
-            uint256 _timestampRetrieved
-        )
+        returns (bool ifRetrieve, uint256 value, uint256 _timestampRetrieved)
     {
         uint256 _count = tellor.getNewValueCountbyRequestId(_requestId);
-        uint256 _time =
-            tellor.getTimestampbyRequestIDandIndex(_requestId, _count.sub(1));
+        uint256 _time = tellor.getTimestampbyRequestIDandIndex(_requestId, _count.sub(1));
         uint256 _value = tellor.retrieveData(_requestId, _time);
         if (_value > 0) return (true, _value, _time);
         return (false, 0, _time);
