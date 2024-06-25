@@ -39,9 +39,6 @@ Visit [liquity.org](https://www.liquity.org) to find out more and join the discu
   - [Full redemption](#full-redemption)
   - [Redemptions create a price floor](#redemptions-create-a-price-floor)
 - [Recovery Mode](#recovery-mode)
-- [Project Structure](#project-structure)
-  - [Directories](#directories)
-  - [Branches](#branches)
 - [LQTY Token Architecture](#lqty-token-architecture)
   - [LQTY Lockup contracts and token vesting](#lqty-lockup-contracts-and-token-vesting)
   - [Lockup Implementation and admin transfer restriction](#lockup-implementation-and-admin-transfer-restriction)
@@ -226,32 +223,6 @@ Recovery Mode is structured to incentivize borrowers to behave in ways that prom
 
 Economically, Recovery Mode is designed to encourage collateral top-ups and debt repayments, and also itself acts as a self-negating deterrent: the possibility of it occurring actually guides the system away from ever reaching it.
 
-## Project Structure
-
-### Directories
-- `papers` - Whitepaper and math papers: a proof of Liquity's trove order invariant, and a derivation of the scalable Stability Pool staking formula
-- `packages/dev-frontend/` - Liquity Developer UI: a fully functional React app used for interfacing with the smart contracts during development
-- `packages/fuzzer/` - A very simple, purpose-built tool based on Liquity middleware for randomly interacting with the system
-- `packages/lib-base/` - Common interfaces and classes shared by the other `lib-` packages
-- `packages/lib-ethers/` - [Ethers](https://github.com/ethers-io/ethers.js/)-based middleware that can read Liquity state and send transactions
-- `packages/lib-react/` - Components and hooks that React-based apps can use to view Liquity contract state
-- `packages/lib-subgraph/` - [Apollo Client](https://github.com/apollographql/apollo-client)-based middleware backed by the Liquity subgraph that can read Liquity state
-- `packages/providers/` - Subclassed Ethers providers used by the frontend
-- `packages/subgraph/` - [Subgraph](https://thegraph.com) for querying Liquity state as well as historical data like transaction history
-- `packages/contracts/` - The backend development folder, contains the Hardhat project, contracts and tests
-- `packages/contracts/contracts/` - The core back end smart contracts written in Solidity
-- `packages/contracts/test/` - JS test suite for the system. Tests run in Mocha/Chai
-- `packages/contracts/tests/` - Python test suite for the system. Tests run in Brownie
-- `packages/contracts/gasTest/` - Non-assertive tests that return gas costs for Liquity operations under various scenarios
-- `packages/contracts/fuzzTests/` - Echidna tests, and naive "random operation" tests
-- `packages/contracts/migrations/` - contains Hardhat script for deploying the smart contracts to the blockchain
-- `packages/contracts/utils/` - external Hardhat and node scripts - deployment helpers, gas calculators, etc
-
-Backend development is done in the Hardhat framework, and allows Liquity to be deployed on the Hardhat EVM network for fast compilation and test execution.
-
-### Branches
-
-As of 18/01/2021, the current working branch is `main`. `master` is out of date.
 
 ## LQTY Token Architecture
 
