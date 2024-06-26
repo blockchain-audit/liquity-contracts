@@ -1,0 +1,1534 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	Development	//
+PriceFeed	src/PriceFeed.sol	/^contract PriceFeed is Ownable, CheckContract, BaseMath, IPriceFeed {$/;"	c
+struct ChainlinkResponse	src/PriceFeed.sol	/^    struct ChainlinkResponse {$/;"	v
+struct TellorResponse	src/PriceFeed.sol	/^    struct TellorResponse {$/;"	v
+enum Status	src/PriceFeed.sol	/^    enum Status {$/;"	v
+LastGoodPriceUpdated	src/PriceFeed.sol	/^    event LastGoodPriceUpdated(uint256 _lastGoodPrice);$/;"	e
+PriceFeedStatusChanged	src/PriceFeed.sol	/^    event PriceFeedStatusChanged(Status newStatus);$/;"	e
+setAddresses	src/PriceFeed.sol	/^    function setAddresses(address _priceAggregatorAddress, address _tellorCallerAddress) external onlyOwner {$/;"	f
+fetchPrice	src/PriceFeed.sol	/^    function fetchPrice() external override returns (uint256) {$/;"	f
+_chainlinkIsBroken	src/PriceFeed.sol	/^    function _chainlinkIsBroken(ChainlinkResponse memory _currentResponse, ChainlinkResponse memory _prevResponse)$/;"	f
+_badChainlinkResponse	src/PriceFeed.sol	/^    function _badChainlinkResponse(ChainlinkResponse memory _response) internal view returns (bool) {$/;"	f
+_chainlinkIsFrozen	src/PriceFeed.sol	/^    function _chainlinkIsFrozen(ChainlinkResponse memory _response) internal view returns (bool) {$/;"	f
+_chainlinkPriceChangeAboveMax	src/PriceFeed.sol	/^    function _chainlinkPriceChangeAboveMax($/;"	f
+_tellorIsBroken	src/PriceFeed.sol	/^    function _tellorIsBroken(TellorResponse memory _response) internal view returns (bool) {$/;"	f
+_tellorIsFrozen	src/PriceFeed.sol	/^    function _tellorIsFrozen(TellorResponse memory _tellorResponse) internal view returns (bool) {$/;"	f
+_bothOraclesLiveAndUnbrokenAndSimilarPrice	src/PriceFeed.sol	/^    function _bothOraclesLiveAndUnbrokenAndSimilarPrice($/;"	f
+_bothOraclesSimilarPrice	src/PriceFeed.sol	/^    function _bothOraclesSimilarPrice($/;"	f
+_scaleChainlinkPriceByDigits	src/PriceFeed.sol	/^    function _scaleChainlinkPriceByDigits(uint256 _price, uint256 _answerDigits) internal pure returns (uint256) {$/;"	f
+_scaleTellorPriceByDigits	src/PriceFeed.sol	/^    function _scaleTellorPriceByDigits(uint256 _price) internal pure returns (uint256) {$/;"	f
+_changeStatus	src/PriceFeed.sol	/^    function _changeStatus(Status _status) internal {$/;"	f
+_storePrice	src/PriceFeed.sol	/^    function _storePrice(uint256 _currentPrice) internal {$/;"	f
+_storeTellorPrice	src/PriceFeed.sol	/^    function _storeTellorPrice(TellorResponse memory _tellorResponse) internal returns (uint256) {$/;"	f
+_storeChainlinkPrice	src/PriceFeed.sol	/^    function _storeChainlinkPrice(ChainlinkResponse memory _chainlinkResponse) internal returns (uint256) {$/;"	f
+_getCurrentTellorResponse	src/PriceFeed.sol	/^    function _getCurrentTellorResponse() internal view returns (TellorResponse memory tellorResponse) {$/;"	f
+_getCurrentChainlinkResponse	src/PriceFeed.sol	/^    function _getCurrentChainlinkResponse() internal view returns (ChainlinkResponse memory chainlinkResponse) {$/;"	f
+_getPrevChainlinkResponse	src/PriceFeed.sol	/^    function _getPrevChainlinkResponse(uint80 _currentRoundId, uint8 _currentDecimals)$/;"	f
+DefaultPool	src/DefaultPool.sol	/^contract DefaultPool is Ownable, CheckContract, IDefaultPool {$/;"	c
+TroveManagerAddressChanged	src/DefaultPool.sol	/^    event TroveManagerAddressChanged(address _newTroveManagerAddress);$/;"	e
+DefaultPoolLUSDDebtUpdated	src/DefaultPool.sol	/^    event DefaultPoolLUSDDebtUpdated(uint256 _LUSDDebt);$/;"	e
+DefaultPoolETHBalanceUpdated	src/DefaultPool.sol	/^    event DefaultPoolETHBalanceUpdated(uint256 _ETH);$/;"	e
+setAddresses	src/DefaultPool.sol	/^    function setAddresses(address _troveManagerAddress, address _activePoolAddress) external onlyOwner {$/;"	f
+getETH	src/DefaultPool.sol	/^    function getETH() external view override returns (uint256) {$/;"	f
+getLUSDDebt	src/DefaultPool.sol	/^    function getLUSDDebt() external view override returns (uint256) {$/;"	f
+sendETHToActivePool	src/DefaultPool.sol	/^    function sendETHToActivePool(uint256 _amount) external override {$/;"	f
+increaseLUSDDebt	src/DefaultPool.sol	/^    function increaseLUSDDebt(uint256 _amount) external override {$/;"	f
+decreaseLUSDDebt	src/DefaultPool.sol	/^    function decreaseLUSDDebt(uint256 _amount) external override {$/;"	f
+_requireCallerIsActivePool	src/DefaultPool.sol	/^    function _requireCallerIsActivePool() internal view {$/;"	f
+_requireCallerIsTroveManager	src/DefaultPool.sol	/^    function _requireCallerIsTroveManager() internal view {$/;"	f
+BorrowerOperations	src/BorrowerOperations.sol	/^contract BorrowerOperations is LiquityBase, Ownable, CheckContract, IBorrowerOperations {$/;"	c
+struct LocalVariables_adjustTrove	src/BorrowerOperations.sol	/^    struct LocalVariables_adjustTrove {$/;"	v
+struct LocalVariables_openTrove	src/BorrowerOperations.sol	/^    struct LocalVariables_openTrove {$/;"	v
+struct ContractsCache	src/BorrowerOperations.sol	/^    struct ContractsCache {$/;"	v
+enum BorrowerOperation	src/BorrowerOperations.sol	/^    enum BorrowerOperation {$/;"	v
+TroveManagerAddressChanged	src/BorrowerOperations.sol	/^    event TroveManagerAddressChanged(address _newTroveManagerAddress);$/;"	e
+ActivePoolAddressChanged	src/BorrowerOperations.sol	/^    event ActivePoolAddressChanged(address _activePoolAddress);$/;"	e
+DefaultPoolAddressChanged	src/BorrowerOperations.sol	/^    event DefaultPoolAddressChanged(address _defaultPoolAddress);$/;"	e
+StabilityPoolAddressChanged	src/BorrowerOperations.sol	/^    event StabilityPoolAddressChanged(address _stabilityPoolAddress);$/;"	e
+GasPoolAddressChanged	src/BorrowerOperations.sol	/^    event GasPoolAddressChanged(address _gasPoolAddress);$/;"	e
+CollSurplusPoolAddressChanged	src/BorrowerOperations.sol	/^    event CollSurplusPoolAddressChanged(address _collSurplusPoolAddress);$/;"	e
+PriceFeedAddressChanged	src/BorrowerOperations.sol	/^    event PriceFeedAddressChanged(address _newPriceFeedAddress);$/;"	e
+SortedTrovesAddressChanged	src/BorrowerOperations.sol	/^    event SortedTrovesAddressChanged(address _sortedTrovesAddress);$/;"	e
+LUSDTokenAddressChanged	src/BorrowerOperations.sol	/^    event LUSDTokenAddressChanged(address _lusdTokenAddress);$/;"	e
+LQTYStakingAddressChanged	src/BorrowerOperations.sol	/^    event LQTYStakingAddressChanged(address _lqtyStakingAddress);$/;"	e
+TroveCreated	src/BorrowerOperations.sol	/^    event TroveCreated(address indexed _borrower, uint256 arrayIndex);$/;"	e
+TroveUpdated	src/BorrowerOperations.sol	/^    event TroveUpdated($/;"	e
+LUSDBorrowingFeePaid	src/BorrowerOperations.sol	/^    event LUSDBorrowingFeePaid(address indexed _borrower, uint256 _LUSDFee);$/;"	e
+setAddresses	src/BorrowerOperations.sol	/^    function setAddresses($/;"	f
+openTrove	src/BorrowerOperations.sol	/^    function openTrove(uint256 _maxFeePercentage, uint256 _LUSDAmount, address _upperHint, address _lowerHint)$/;"	f
+addColl	src/BorrowerOperations.sol	/^    function addColl(address _upperHint, address _lowerHint) external payable override {$/;"	f
+moveETHGainToTrove	src/BorrowerOperations.sol	/^    function moveETHGainToTrove(address _borrower, address _upperHint, address _lowerHint) external payable override {$/;"	f
+withdrawColl	src/BorrowerOperations.sol	/^    function withdrawColl(uint256 _collWithdrawal, address _upperHint, address _lowerHint) external override {$/;"	f
+withdrawLUSD	src/BorrowerOperations.sol	/^    function withdrawLUSD(uint256 _maxFeePercentage, uint256 _LUSDAmount, address _upperHint, address _lowerHint)$/;"	f
+repayLUSD	src/BorrowerOperations.sol	/^    function repayLUSD(uint256 _LUSDAmount, address _upperHint, address _lowerHint) external override {$/;"	f
+adjustTrove	src/BorrowerOperations.sol	/^    function adjustTrove($/;"	f
+can	src/BorrowerOperations.sol	/^    * _adjustTrove(): Alongside a debt change, this function can perform either a collateral top-up or a collateral withdrawal. $/;"	f
+_adjustTrove	src/BorrowerOperations.sol	/^    function _adjustTrove($/;"	f
+closeTrove	src/BorrowerOperations.sol	/^    function closeTrove() external override {$/;"	f
+claimCollateral	src/BorrowerOperations.sol	/^    function claimCollateral() external override {$/;"	f
+_triggerBorrowingFee	src/BorrowerOperations.sol	/^    function _triggerBorrowingFee($/;"	f
+_getUSDValue	src/BorrowerOperations.sol	/^    function _getUSDValue(uint256 _coll, uint256 _price) internal pure returns (uint256) {$/;"	f
+_getCollChange	src/BorrowerOperations.sol	/^    function _getCollChange(uint256 _collReceived, uint256 _requestedCollWithdrawal)$/;"	f
+_updateTroveFromAdjustment	src/BorrowerOperations.sol	/^    function _updateTroveFromAdjustment($/;"	f
+_moveTokensAndETHfromAdjustment	src/BorrowerOperations.sol	/^    function _moveTokensAndETHfromAdjustment($/;"	f
+_activePoolAddColl	src/BorrowerOperations.sol	/^    function _activePoolAddColl(IActivePool _activePool, uint256 _amount) internal {$/;"	f
+_withdrawLUSD	src/BorrowerOperations.sol	/^    function _withdrawLUSD($/;"	f
+_repayLUSD	src/BorrowerOperations.sol	/^    function _repayLUSD(IActivePool _activePool, ILUSDToken _lusdToken, address _account, uint256 _LUSD) internal {$/;"	f
+_requireSingularCollChange	src/BorrowerOperations.sol	/^    function _requireSingularCollChange(uint256 _collWithdrawal) internal view {$/;"	f
+_requireCallerIsBorrower	src/BorrowerOperations.sol	/^    function _requireCallerIsBorrower(address _borrower) internal view {$/;"	f
+_requireNonZeroAdjustment	src/BorrowerOperations.sol	/^    function _requireNonZeroAdjustment(uint256 _collWithdrawal, uint256 _LUSDChange) internal view {$/;"	f
+_requireTroveisActive	src/BorrowerOperations.sol	/^    function _requireTroveisActive(ITroveManager _troveManager, address _borrower) internal view {$/;"	f
+_requireTroveisNotActive	src/BorrowerOperations.sol	/^    function _requireTroveisNotActive(ITroveManager _troveManager, address _borrower) internal view {$/;"	f
+_requireNonZeroDebtChange	src/BorrowerOperations.sol	/^    function _requireNonZeroDebtChange(uint256 _LUSDChange) internal pure {$/;"	f
+_requireNotInRecoveryMode	src/BorrowerOperations.sol	/^    function _requireNotInRecoveryMode(uint256 _price) internal view {$/;"	f
+_requireNoCollWithdrawal	src/BorrowerOperations.sol	/^    function _requireNoCollWithdrawal(uint256 _collWithdrawal) internal pure {$/;"	f
+_requireValidAdjustmentInCurrentMode	src/BorrowerOperations.sol	/^    function _requireValidAdjustmentInCurrentMode($/;"	f
+_requireICRisAboveMCR	src/BorrowerOperations.sol	/^    function _requireICRisAboveMCR(uint256 _newICR) internal pure {$/;"	f
+_requireICRisAboveCCR	src/BorrowerOperations.sol	/^    function _requireICRisAboveCCR(uint256 _newICR) internal pure {$/;"	f
+_requireNewICRisAboveOldICR	src/BorrowerOperations.sol	/^    function _requireNewICRisAboveOldICR(uint256 _newICR, uint256 _oldICR) internal pure {$/;"	f
+_requireNewTCRisAboveCCR	src/BorrowerOperations.sol	/^    function _requireNewTCRisAboveCCR(uint256 _newTCR) internal pure {$/;"	f
+_requireAtLeastMinNetDebt	src/BorrowerOperations.sol	/^    function _requireAtLeastMinNetDebt(uint256 _netDebt) internal pure {$/;"	f
+_requireValidLUSDRepayment	src/BorrowerOperations.sol	/^    function _requireValidLUSDRepayment(uint256 _currentDebt, uint256 _debtRepayment) internal pure {$/;"	f
+_requireCallerIsStabilityPool	src/BorrowerOperations.sol	/^    function _requireCallerIsStabilityPool() internal view {$/;"	f
+_requireSufficientLUSDBalance	src/BorrowerOperations.sol	/^    function _requireSufficientLUSDBalance(ILUSDToken _lusdToken, address _borrower, uint256 _debtRepayment)$/;"	f
+_requireValidMaxFeePercentage	src/BorrowerOperations.sol	/^    function _requireValidMaxFeePercentage(uint256 _maxFeePercentage, bool _isRecoveryMode) internal pure {$/;"	f
+_getNewNominalICRFromTroveChange	src/BorrowerOperations.sol	/^    function _getNewNominalICRFromTroveChange($/;"	f
+_getNewICRFromTroveChange	src/BorrowerOperations.sol	/^    function _getNewICRFromTroveChange($/;"	f
+_getNewTroveAmounts	src/BorrowerOperations.sol	/^    function _getNewTroveAmounts($/;"	f
+_getNewTCRFromTroveChange	src/BorrowerOperations.sol	/^    function _getNewTCRFromTroveChange($/;"	f
+getCompositeDebt	src/BorrowerOperations.sol	/^    function getCompositeDebt(uint256 _debt) external pure override returns (uint256) {$/;"	f
+LUSDTokenCaller	src/TestContracts/LUSDTokenCaller.sol	/^contract LUSDTokenCaller {$/;"	c
+setLUSD	src/TestContracts/LUSDTokenCaller.sol	/^    function setLUSD(ILUSDToken _LUSD) external {$/;"	f
+lusdMint	src/TestContracts/LUSDTokenCaller.sol	/^    function lusdMint(address _account, uint256 _amount) external {$/;"	f
+lusdBurn	src/TestContracts/LUSDTokenCaller.sol	/^    function lusdBurn(address _account, uint256 _amount) external {$/;"	f
+lusdSendToPool	src/TestContracts/LUSDTokenCaller.sol	/^    function lusdSendToPool(address _sender, address _poolAddress, uint256 _amount) external {$/;"	f
+lusdReturnFromPool	src/TestContracts/LUSDTokenCaller.sol	/^    function lusdReturnFromPool(address _poolAddress, address _receiver, uint256 _amount) external {$/;"	f
+MockAggregator	src/TestContracts/MockAggregator.sol	/^contract MockAggregator is AggregatorV3Interface {$/;"	c
+setDecimals	src/TestContracts/MockAggregator.sol	/^    function setDecimals(uint8 _decimals) external {$/;"	f
+setPrice	src/TestContracts/MockAggregator.sol	/^    function setPrice(int256 _price) external {$/;"	f
+setPrevPrice	src/TestContracts/MockAggregator.sol	/^    function setPrevPrice(int256 _prevPrice) external {$/;"	f
+setPrevUpdateTime	src/TestContracts/MockAggregator.sol	/^    function setPrevUpdateTime(uint256 _prevUpdateTime) external {$/;"	f
+setUpdateTime	src/TestContracts/MockAggregator.sol	/^    function setUpdateTime(uint256 _updateTime) external {$/;"	f
+setLatestRevert	src/TestContracts/MockAggregator.sol	/^    function setLatestRevert() external {$/;"	f
+setPrevRevert	src/TestContracts/MockAggregator.sol	/^    function setPrevRevert() external {$/;"	f
+setDecimalsRevert	src/TestContracts/MockAggregator.sol	/^    function setDecimalsRevert() external {$/;"	f
+setLatestRoundId	src/TestContracts/MockAggregator.sol	/^    function setLatestRoundId(uint80 _latestRoundId) external {$/;"	f
+setPrevRoundId	src/TestContracts/MockAggregator.sol	/^    function setPrevRoundId(uint80 _prevRoundId) external {$/;"	f
+decimals	src/TestContracts/MockAggregator.sol	/^    function decimals() external view override returns (uint8) {$/;"	f
+latestRoundData	src/TestContracts/MockAggregator.sol	/^    function latestRoundData()$/;"	f
+getRoundData	src/TestContracts/MockAggregator.sol	/^    function getRoundData(uint80)$/;"	f
+description	src/TestContracts/MockAggregator.sol	/^    function description() external view override returns (string memory) {$/;"	f
+version	src/TestContracts/MockAggregator.sol	/^    function version() external view override returns (uint256) {$/;"	f
+LiquitySafeMath128Tester	src/TestContracts/LiquitySafeMath128Tester.sol	/^contract LiquitySafeMath128Tester {$/;"	c
+add	src/TestContracts/LiquitySafeMath128Tester.sol	/^    function add(uint128 a, uint128 b) external pure returns (uint128) {$/;"	f
+sub	src/TestContracts/LiquitySafeMath128Tester.sol	/^    function sub(uint128 a, uint128 b) external pure returns (uint128) {$/;"	f
+LQTYStakingTester	src/TestContracts/LQTYStakingTester.sol	/^contract LQTYStakingTester is LQTYStaking {$/;"	c
+requireCallerIsTroveManager	src/TestContracts/LQTYStakingTester.sol	/^    function requireCallerIsTroveManager() external view {$/;"	f
+SortedTrovesTester	src/TestContracts/SortedTrovesTester.sol	/^contract SortedTrovesTester {$/;"	c
+setSortedTroves	src/TestContracts/SortedTrovesTester.sol	/^    function setSortedTroves(address _sortedTrovesAddress) external {$/;"	f
+insert	src/TestContracts/SortedTrovesTester.sol	/^    function insert(address _id, uint256 _NICR, address _prevId, address _nextId) external {$/;"	f
+remove	src/TestContracts/SortedTrovesTester.sol	/^    function remove(address _id) external {$/;"	f
+reInsert	src/TestContracts/SortedTrovesTester.sol	/^    function reInsert(address _id, uint256 _newNICR, address _prevId, address _nextId) external {$/;"	f
+getNominalICR	src/TestContracts/SortedTrovesTester.sol	/^    function getNominalICR(address) external pure returns (uint256) {$/;"	f
+getCurrentICR	src/TestContracts/SortedTrovesTester.sol	/^    function getCurrentICR(address, uint256) external pure returns (uint256) {$/;"	f
+BorrowerOperationsTester	src/TestContracts/BorrowerOperationsTester.sol	/^contract BorrowerOperationsTester is BorrowerOperations {$/;"	c
+getNewICRFromTroveChange	src/TestContracts/BorrowerOperationsTester.sol	/^    function getNewICRFromTroveChange($/;"	f
+getNewTCRFromTroveChange	src/TestContracts/BorrowerOperationsTester.sol	/^    function getNewTCRFromTroveChange($/;"	f
+getUSDValue	src/TestContracts/BorrowerOperationsTester.sol	/^    function getUSDValue(uint256 _coll, uint256 _price) external pure returns (uint256) {$/;"	f
+callInternalAdjustLoan	src/TestContracts/BorrowerOperationsTester.sol	/^    function callInternalAdjustLoan($/;"	f
+NonPayable	src/TestContracts/NonPayable.sol	/^contract NonPayable {$/;"	c
+setPayable	src/TestContracts/NonPayable.sol	/^    function setPayable(bool _isPayable) external {$/;"	f
+forward	src/TestContracts/NonPayable.sol	/^    function forward(address _dest, bytes calldata _data) external payable {$/;"	f
+TroveManagerTester	src/TestContracts/CDPManagerTester.sol	/^contract TroveManagerTester is TroveManager {$/;"	c
+computeICR	src/TestContracts/CDPManagerTester.sol	/^    function computeICR(uint256 _coll, uint256 _debt, uint256 _price) external pure returns (uint256) {$/;"	f
+getCollGasCompensation	src/TestContracts/CDPManagerTester.sol	/^    function getCollGasCompensation(uint256 _coll) external pure returns (uint256) {$/;"	f
+getLUSDGasCompensation	src/TestContracts/CDPManagerTester.sol	/^    function getLUSDGasCompensation() external pure returns (uint256) {$/;"	f
+getCompositeDebt	src/TestContracts/CDPManagerTester.sol	/^    function getCompositeDebt(uint256 _debt) external pure returns (uint256) {$/;"	f
+unprotectedDecayBaseRateFromBorrowing	src/TestContracts/CDPManagerTester.sol	/^    function unprotectedDecayBaseRateFromBorrowing() external returns (uint256) {$/;"	f
+minutesPassedSinceLastFeeOp	src/TestContracts/CDPManagerTester.sol	/^    function minutesPassedSinceLastFeeOp() external view returns (uint256) {$/;"	f
+setLastFeeOpTimeToNow	src/TestContracts/CDPManagerTester.sol	/^    function setLastFeeOpTimeToNow() external {$/;"	f
+setBaseRate	src/TestContracts/CDPManagerTester.sol	/^    function setBaseRate(uint256 _baseRate) external {$/;"	f
+callGetRedemptionFee	src/TestContracts/CDPManagerTester.sol	/^    function callGetRedemptionFee(uint256 _ETHDrawn) external view returns (uint256) {$/;"	f
+getActualDebtFromComposite	src/TestContracts/CDPManagerTester.sol	/^    function getActualDebtFromComposite(uint256 _debtVal) external pure returns (uint256) {$/;"	f
+callInternalRemoveTroveOwner	src/TestContracts/CDPManagerTester.sol	/^    function callInternalRemoveTroveOwner(address _troveOwner) external {$/;"	f
+LQTYTokenTester	src/TestContracts/LQTYTokenTester.sol	/^contract LQTYTokenTester is LQTYToken {$/;"	c
+unprotectedMint	src/TestContracts/LQTYTokenTester.sol	/^    function unprotectedMint(address account, uint256 amount) external {$/;"	f
+unprotectedSendToLQTYStaking	src/TestContracts/LQTYTokenTester.sol	/^    function unprotectedSendToLQTYStaking(address _sender, uint256 _amount) external {$/;"	f
+callInternalApprove	src/TestContracts/LQTYTokenTester.sol	/^    function callInternalApprove(address owner, address spender, uint256 amount) external returns (bool) {$/;"	f
+callInternalTransfer	src/TestContracts/LQTYTokenTester.sol	/^    function callInternalTransfer(address sender, address recipient, uint256 amount) external returns (bool) {$/;"	f
+getChainId	src/TestContracts/LQTYTokenTester.sol	/^    function getChainId() external pure returns (uint256 chainID) {$/;"	f
+FunctionCaller	src/TestContracts/FunctionCaller.sol	/^contract FunctionCaller {$/;"	c
+setTroveManagerAddress	src/TestContracts/FunctionCaller.sol	/^    function setTroveManagerAddress(address _troveManagerAddress) external {$/;"	f
+setSortedTrovesAddress	src/TestContracts/FunctionCaller.sol	/^    function setSortedTrovesAddress(address _sortedTrovesAddress) external {$/;"	f
+setPriceFeedAddress	src/TestContracts/FunctionCaller.sol	/^    function setPriceFeedAddress(address _priceFeedAddress) external {$/;"	f
+troveManager_getCurrentICR	src/TestContracts/FunctionCaller.sol	/^    function troveManager_getCurrentICR(address _address, uint256 _price) external returns (uint256) {$/;"	f
+sortedTroves_findInsertPosition	src/TestContracts/FunctionCaller.sol	/^    function sortedTroves_findInsertPosition(uint256 _NICR, address _prevId, address _nextId)$/;"	f
+LiquityMathTester	src/TestContracts/LiquityMathTester.sol	/^contract LiquityMathTester {$/;"	c
+callMax	src/TestContracts/LiquityMathTester.sol	/^    function callMax(uint256 _a, uint256 _b) external pure returns (uint256) {$/;"	f
+callDecPowTx	src/TestContracts/LiquityMathTester.sol	/^    function callDecPowTx(uint256 _base, uint256 _n) external returns (uint256) {$/;"	f
+callDecPow	src/TestContracts/LiquityMathTester.sol	/^    function callDecPow(uint256 _base, uint256 _n) external pure returns (uint256) {$/;"	f
+EchidnaTester	src/TestContracts/EchidnaTester.sol	/^contract EchidnaTester {$/;"	c
+liquidateExt	src/TestContracts/EchidnaTester.sol	/^    function liquidateExt(uint256 _i, address _user) external {$/;"	f
+liquidateTrovesExt	src/TestContracts/EchidnaTester.sol	/^    function liquidateTrovesExt(uint256 _i, uint256 _n) external {$/;"	f
+batchLiquidateTrovesExt	src/TestContracts/EchidnaTester.sol	/^    function batchLiquidateTrovesExt(uint256 _i, address[] calldata _troveArray) external {$/;"	f
+redeemCollateralExt	src/TestContracts/EchidnaTester.sol	/^    function redeemCollateralExt($/;"	f
+getAdjustedETH	src/TestContracts/EchidnaTester.sol	/^    function getAdjustedETH(uint256 actorBalance, uint256 _ETH, uint256 ratio) internal view returns (uint256) {$/;"	f
+getAdjustedLUSD	src/TestContracts/EchidnaTester.sol	/^    function getAdjustedLUSD(uint256 ETH, uint256 _LUSDAmount, uint256 ratio) internal view returns (uint256) {$/;"	f
+openTroveExt	src/TestContracts/EchidnaTester.sol	/^    function openTroveExt(uint256 _i, uint256 _ETH, uint256 _LUSDAmount) public payable {$/;"	f
+openTroveRawExt	src/TestContracts/EchidnaTester.sol	/^    function openTroveRawExt($/;"	f
+addCollExt	src/TestContracts/EchidnaTester.sol	/^    function addCollExt(uint256 _i, uint256 _ETH) external payable {$/;"	f
+addCollRawExt	src/TestContracts/EchidnaTester.sol	/^    function addCollRawExt(uint256 _i, uint256 _ETH, address _upperHint, address _lowerHint) external payable {$/;"	f
+withdrawCollExt	src/TestContracts/EchidnaTester.sol	/^    function withdrawCollExt(uint256 _i, uint256 _amount, address _upperHint, address _lowerHint) external {$/;"	f
+withdrawLUSDExt	src/TestContracts/EchidnaTester.sol	/^    function withdrawLUSDExt(uint256 _i, uint256 _amount, address _upperHint, address _lowerHint, uint256 _maxFee)$/;"	f
+repayLUSDExt	src/TestContracts/EchidnaTester.sol	/^    function repayLUSDExt(uint256 _i, uint256 _amount, address _upperHint, address _lowerHint) external {$/;"	f
+closeTroveExt	src/TestContracts/EchidnaTester.sol	/^    function closeTroveExt(uint256 _i) external {$/;"	f
+adjustTroveExt	src/TestContracts/EchidnaTester.sol	/^    function adjustTroveExt($/;"	f
+adjustTroveRawExt	src/TestContracts/EchidnaTester.sol	/^    function adjustTroveRawExt($/;"	f
+provideToSPExt	src/TestContracts/EchidnaTester.sol	/^    function provideToSPExt(uint256 _i, uint256 _amount, address _frontEndTag) external {$/;"	f
+withdrawFromSPExt	src/TestContracts/EchidnaTester.sol	/^    function withdrawFromSPExt(uint256 _i, uint256 _amount) external {$/;"	f
+transferExt	src/TestContracts/EchidnaTester.sol	/^    function transferExt(uint256 _i, address recipient, uint256 amount) external returns (bool) {$/;"	f
+approveExt	src/TestContracts/EchidnaTester.sol	/^    function approveExt(uint256 _i, address spender, uint256 amount) external returns (bool) {$/;"	f
+transferFromExt	src/TestContracts/EchidnaTester.sol	/^    function transferFromExt(uint256 _i, address sender, address recipient, uint256 amount) external returns (bool) {$/;"	f
+increaseAllowanceExt	src/TestContracts/EchidnaTester.sol	/^    function increaseAllowanceExt(uint256 _i, address spender, uint256 addedValue) external returns (bool) {$/;"	f
+decreaseAllowanceExt	src/TestContracts/EchidnaTester.sol	/^    function decreaseAllowanceExt(uint256 _i, address spender, uint256 subtractedValue) external returns (bool) {$/;"	f
+setPriceExt	src/TestContracts/EchidnaTester.sol	/^    function setPriceExt(uint256 _price) external {$/;"	f
+echidna_canary_number_of_troves	src/TestContracts/EchidnaTester.sol	/^    function echidna_canary_number_of_troves() public view returns (bool) {$/;"	f
+echidna_canary_active_pool_balance	src/TestContracts/EchidnaTester.sol	/^    function echidna_canary_active_pool_balance() public view returns (bool) {$/;"	f
+echidna_troves_order	src/TestContracts/EchidnaTester.sol	/^    function echidna_troves_order() external view returns (bool) {$/;"	f
+echidna_trove_properties	src/TestContracts/EchidnaTester.sol	/^    function echidna_trove_properties() public view returns (bool) {$/;"	f
+echidna_ETH_balances	src/TestContracts/EchidnaTester.sol	/^    function echidna_ETH_balances() public view returns (bool) {$/;"	f
+echidna_price	src/TestContracts/EchidnaTester.sol	/^    function echidna_price() public view returns (bool) {$/;"	f
+echidna_LUSD_global_balances	src/TestContracts/EchidnaTester.sol	/^    function echidna_LUSD_global_balances() public view returns (bool) {$/;"	f
+echidna_test	src/TestContracts/EchidnaTester.sol	/^    function echidna_test() public view returns(bool) {$/;"	f
+PriceFeedTester	src/TestContracts/PriceFeedTester.sol	/^contract PriceFeedTester is PriceFeed {$/;"	c
+setLastGoodPrice	src/TestContracts/PriceFeedTester.sol	/^    function setLastGoodPrice(uint256 _lastGoodPrice) external {$/;"	f
+setStatus	src/TestContracts/PriceFeedTester.sol	/^    function setStatus(Status _status) external {$/;"	f
+DSAuthority	src/TestContracts/DappSys/proxy.sol	/^contract DSAuthority {$/;"	c
+canCall	src/TestContracts/DappSys/proxy.sol	/^    function canCall(address src, address dst, bytes4 sig) public view returns (bool);$/;"	f
+DSAuthEvents	src/TestContracts/DappSys/proxy.sol	/^contract DSAuthEvents {$/;"	c
+LogSetAuthority	src/TestContracts/DappSys/proxy.sol	/^    event LogSetAuthority(address indexed authority);$/;"	e
+LogSetOwner	src/TestContracts/DappSys/proxy.sol	/^    event LogSetOwner(address indexed owner);$/;"	e
+DSAuth	src/TestContracts/DappSys/proxy.sol	/^contract DSAuth is DSAuthEvents {$/;"	c
+setOwner	src/TestContracts/DappSys/proxy.sol	/^    function setOwner(address owner_) public auth {$/;"	f
+setAuthority	src/TestContracts/DappSys/proxy.sol	/^    function setAuthority(DSAuthority authority_) public auth {$/;"	f
+isAuthorized	src/TestContracts/DappSys/proxy.sol	/^    function isAuthorized(address src, bytes4 sig) internal view returns (bool) {$/;"	f
+DSNote	src/TestContracts/DappSys/proxy.sol	/^contract DSNote {$/;"	c
+LogNote	src/TestContracts/DappSys/proxy.sol	/^    event LogNote($/;"	e
+DSProxy	src/TestContracts/DappSys/proxy.sol	/^contract DSProxy is DSAuth, DSNote {$/;"	c
+execute	src/TestContracts/DappSys/proxy.sol	/^    function execute(bytes _code, bytes _data) public payable returns (address target, bytes32 response) {$/;"	f
+execute	src/TestContracts/DappSys/proxy.sol	/^    function execute(address _target, bytes _data) public payable auth note returns (bytes32 response) {$/;"	f
+setCache	src/TestContracts/DappSys/proxy.sol	/^    function setCache(address _cacheAddr) public auth note returns (bool) {$/;"	f
+DSProxyFactory	src/TestContracts/DappSys/proxy.sol	/^contract DSProxyFactory {$/;"	c
+Created	src/TestContracts/DappSys/proxy.sol	/^    event Created(address indexed sender, address indexed owner, address proxy, address cache);$/;"	e
+build	src/TestContracts/DappSys/proxy.sol	/^    function build() public returns (DSProxy proxy) {$/;"	f
+build	src/TestContracts/DappSys/proxy.sol	/^    function build(address owner) public returns (DSProxy proxy) {$/;"	f
+DSProxyCache	src/TestContracts/DappSys/proxy.sol	/^contract DSProxyCache {$/;"	c
+read	src/TestContracts/DappSys/proxy.sol	/^    function read(bytes _code) public view returns (address) {$/;"	f
+write	src/TestContracts/DappSys/proxy.sol	/^    function write(bytes _code) public returns (address target) {$/;"	f
+PriceFeedTestnet	src/TestContracts/PriceFeedTestnet.sol	/^contract PriceFeedTestnet is IPriceFeed {$/;"	c
+getPrice	src/TestContracts/PriceFeedTestnet.sol	/^    function getPrice() external view returns (uint256) {$/;"	f
+fetchPrice	src/TestContracts/PriceFeedTestnet.sol	/^    function fetchPrice() external override returns (uint256) {$/;"	f
+just	src/TestContracts/PriceFeedTestnet.sol	/^        \/\/ Fire an event just like the mainnet version would.$/;"	e
+setPrice	src/TestContracts/PriceFeedTestnet.sol	/^    function setPrice(uint256 price) external returns (bool) {$/;"	f
+DefaultPoolTester	src/TestContracts/DefaultPoolTester.sol	/^contract DefaultPoolTester is DefaultPool {$/;"	c
+unprotectedIncreaseLUSDDebt	src/TestContracts/DefaultPoolTester.sol	/^    function unprotectedIncreaseLUSDDebt(uint256 _amount) external {$/;"	f
+unprotectedPayable	src/TestContracts/DefaultPoolTester.sol	/^    function unprotectedPayable() external payable {$/;"	f
+MockTellor	src/TestContracts/MockTellor.sol	/^contract MockTellor {$/;"	c
+setPrice	src/TestContracts/MockTellor.sol	/^    function setPrice(uint256 _price) external {$/;"	f
+setDidRetrieve	src/TestContracts/MockTellor.sol	/^    function setDidRetrieve(bool _didRetrieve) external {$/;"	f
+setUpdateTime	src/TestContracts/MockTellor.sol	/^    function setUpdateTime(uint256 _updateTime) external {$/;"	f
+setRevertRequest	src/TestContracts/MockTellor.sol	/^    function setRevertRequest() external {$/;"	f
+getTimestampbyRequestIDandIndex	src/TestContracts/MockTellor.sol	/^    function getTimestampbyRequestIDandIndex(uint256, uint256) external view returns (uint256) {$/;"	f
+getNewValueCountbyRequestId	src/TestContracts/MockTellor.sol	/^    function getNewValueCountbyRequestId(uint256) external view returns (uint256) {$/;"	f
+retrieveData	src/TestContracts/MockTellor.sol	/^    function retrieveData(uint256, uint256) external view returns (uint256) {$/;"	f
+CommunityIssuanceTester	src/TestContracts/CommunityIssuanceTester.sol	/^contract CommunityIssuanceTester is CommunityIssuance {$/;"	c
+obtainLQTY	src/TestContracts/CommunityIssuanceTester.sol	/^    function obtainLQTY(uint256 _amount) external {$/;"	f
+getCumulativeIssuanceFraction	src/TestContracts/CommunityIssuanceTester.sol	/^    function getCumulativeIssuanceFraction() external view returns (uint256) {$/;"	f
+unprotectedIssueLQTY	src/TestContracts/CommunityIssuanceTester.sol	/^    function unprotectedIssueLQTY() external returns (uint256) {$/;"	f
+Destructible	src/TestContracts/Destructible.sol	/^contract Destructible {$/;"	c
+destruct	src/TestContracts/Destructible.sol	/^    function destruct(address payable _receiver) external {$/;"	f
+EchidnaProxy	src/TestContracts/EchidnaProxy.sol	/^contract EchidnaProxy {$/;"	c
+liquidatePrx	src/TestContracts/EchidnaProxy.sol	/^    function liquidatePrx(address _user) external {$/;"	f
+liquidateTrovesPrx	src/TestContracts/EchidnaProxy.sol	/^    function liquidateTrovesPrx(uint256 _n) external {$/;"	f
+batchLiquidateTrovesPrx	src/TestContracts/EchidnaProxy.sol	/^    function batchLiquidateTrovesPrx(address[] calldata _troveArray) external {$/;"	f
+redeemCollateralPrx	src/TestContracts/EchidnaProxy.sol	/^    function redeemCollateralPrx($/;"	f
+openTrovePrx	src/TestContracts/EchidnaProxy.sol	/^    function openTrovePrx(uint256 _ETH, uint256 _LUSDAmount, address _upperHint, address _lowerHint, uint256 _maxFee)$/;"	f
+addCollPrx	src/TestContracts/EchidnaProxy.sol	/^    function addCollPrx(uint256 _ETH, address _upperHint, address _lowerHint) external payable {$/;"	f
+withdrawCollPrx	src/TestContracts/EchidnaProxy.sol	/^    function withdrawCollPrx(uint256 _amount, address _upperHint, address _lowerHint) external {$/;"	f
+withdrawLUSDPrx	src/TestContracts/EchidnaProxy.sol	/^    function withdrawLUSDPrx(uint256 _amount, address _upperHint, address _lowerHint, uint256 _maxFee) external {$/;"	f
+repayLUSDPrx	src/TestContracts/EchidnaProxy.sol	/^    function repayLUSDPrx(uint256 _amount, address _upperHint, address _lowerHint) external {$/;"	f
+closeTrovePrx	src/TestContracts/EchidnaProxy.sol	/^    function closeTrovePrx() external {$/;"	f
+adjustTrovePrx	src/TestContracts/EchidnaProxy.sol	/^    function adjustTrovePrx($/;"	f
+provideToSPPrx	src/TestContracts/EchidnaProxy.sol	/^    function provideToSPPrx(uint256 _amount, address _frontEndTag) external {$/;"	f
+withdrawFromSPPrx	src/TestContracts/EchidnaProxy.sol	/^    function withdrawFromSPPrx(uint256 _amount) external {$/;"	f
+transferPrx	src/TestContracts/EchidnaProxy.sol	/^    function transferPrx(address recipient, uint256 amount) external returns (bool) {$/;"	f
+approvePrx	src/TestContracts/EchidnaProxy.sol	/^    function approvePrx(address spender, uint256 amount) external returns (bool) {$/;"	f
+transferFromPrx	src/TestContracts/EchidnaProxy.sol	/^    function transferFromPrx(address sender, address recipient, uint256 amount) external returns (bool) {$/;"	f
+increaseAllowancePrx	src/TestContracts/EchidnaProxy.sol	/^    function increaseAllowancePrx(address spender, uint256 addedValue) external returns (bool) {$/;"	f
+decreaseAllowancePrx	src/TestContracts/EchidnaProxy.sol	/^    function decreaseAllowancePrx(address spender, uint256 subtractedValue) external returns (bool) {$/;"	f
+LUSDTokenTester	src/TestContracts/LUSDTokenTester.sol	/^contract LUSDTokenTester is LUSDToken {$/;"	c
+unprotectedMint	src/TestContracts/LUSDTokenTester.sol	/^    function unprotectedMint(address _account, uint256 _amount) external {$/;"	f
+unprotectedBurn	src/TestContracts/LUSDTokenTester.sol	/^    function unprotectedBurn(address _account, uint256 _amount) external {$/;"	f
+unprotectedSendToPool	src/TestContracts/LUSDTokenTester.sol	/^    function unprotectedSendToPool(address _sender, address _poolAddress, uint256 _amount) external {$/;"	f
+unprotectedReturnFromPool	src/TestContracts/LUSDTokenTester.sol	/^    function unprotectedReturnFromPool(address _poolAddress, address _receiver, uint256 _amount) external {$/;"	f
+callInternalApprove	src/TestContracts/LUSDTokenTester.sol	/^    function callInternalApprove(address owner, address spender, uint256 amount) external returns (bool) {$/;"	f
+getChainId	src/TestContracts/LUSDTokenTester.sol	/^    function getChainId() external pure returns (uint256 chainID) {$/;"	f
+getDigest	src/TestContracts/LUSDTokenTester.sol	/^    function getDigest(address owner, address spender, uint256 amount, uint256 nonce, uint256 deadline)$/;"	f
+recoverAddress	src/TestContracts/LUSDTokenTester.sol	/^    function recoverAddress(bytes32 digest, uint8 v, bytes32 r, bytes32 s) external pure returns (address) {$/;"	f
+ActivePoolTester	src/TestContracts/ActivePoolTester.sol	/^contract ActivePoolTester is ActivePool {$/;"	c
+unprotectedIncreaseLUSDDebt	src/TestContracts/ActivePoolTester.sol	/^    function unprotectedIncreaseLUSDDebt(uint256 _amount) external {$/;"	f
+unprotectedPayable	src/TestContracts/ActivePoolTester.sol	/^    function unprotectedPayable() external payable {$/;"	f
+StabilityPoolTester	src/TestContracts/StabilityPoolTester.sol	/^contract StabilityPoolTester is StabilityPool {$/;"	c
+unprotectedPayable	src/TestContracts/StabilityPoolTester.sol	/^    function unprotectedPayable() external payable {$/;"	f
+setCurrentScale	src/TestContracts/StabilityPoolTester.sol	/^    function setCurrentScale(uint128 _currentScale) external {$/;"	f
+setTotalDeposits	src/TestContracts/StabilityPoolTester.sol	/^    function setTotalDeposits(uint256 _totalLUSDDeposits) external {$/;"	f
+HintHelpers	src/HintHelpers.sol	/^contract HintHelpers is LiquityBase, Ownable, CheckContract {$/;"	c
+SortedTrovesAddressChanged	src/HintHelpers.sol	/^    event SortedTrovesAddressChanged(address _sortedTrovesAddress);$/;"	e
+TroveManagerAddressChanged	src/HintHelpers.sol	/^    event TroveManagerAddressChanged(address _troveManagerAddress);$/;"	e
+setAddresses	src/HintHelpers.sol	/^    function setAddresses(address _sortedTrovesAddress, address _troveManagerAddress) external onlyOwner {$/;"	f
+for	src/HintHelpers.sol	/^    \/* getRedemptionHints() - Helper function for finding the right hints to pass to redeemCollateral().$/;"	f
+getRedemptionHints	src/HintHelpers.sol	/^    function getRedemptionHints(uint256 _LUSDamount, uint256 _price, uint256 _maxIterations)$/;"	f
+getApproxHint	src/HintHelpers.sol	/^    function getApproxHint(uint256 _CR, uint256 _numTrials, uint256 _inputRandomSeed)$/;"	f
+computeNominalCR	src/HintHelpers.sol	/^    function computeNominalCR(uint256 _coll, uint256 _debt) external pure returns (uint256) {$/;"	f
+computeCR	src/HintHelpers.sol	/^    function computeCR(uint256 _coll, uint256 _debt, uint256 _price) external pure returns (uint256) {$/;"	f
+MultiTroveGetter	src/MultiTroveGetter.sol	/^contract MultiTroveGetter {$/;"	c
+struct CombinedTroveData	src/MultiTroveGetter.sol	/^    struct CombinedTroveData {$/;"	v
+getMultipleSortedTroves	src/MultiTroveGetter.sol	/^    function getMultipleSortedTroves(int256 _startIdx, uint256 _count)$/;"	f
+_getMultipleSortedTrovesFromHead	src/MultiTroveGetter.sol	/^    function _getMultipleSortedTrovesFromHead(uint256 _startIdx, uint256 _count)$/;"	f
+_getMultipleSortedTrovesFromTail	src/MultiTroveGetter.sol	/^    function _getMultipleSortedTrovesFromTail(uint256 _startIdx, uint256 _count)$/;"	f
+LockupContract	src/LQTY/LockupContract.sol	/^contract LockupContract {$/;"	c
+LockupContractCreated	src/LQTY/LockupContract.sol	/^    event LockupContractCreated(address _beneficiary, uint256 _unlockTime);$/;"	e
+LockupContractEmptied	src/LQTY/LockupContract.sol	/^    event LockupContractEmptied(uint256 _LQTYwithdrawal);$/;"	e
+withdrawLQTY	src/LQTY/LockupContract.sol	/^    function withdrawLQTY() external {$/;"	f
+_requireCallerIsBeneficiary	src/LQTY/LockupContract.sol	/^    function _requireCallerIsBeneficiary() internal view {$/;"	f
+_requireLockupDurationHasPassed	src/LQTY/LockupContract.sol	/^    function _requireLockupDurationHasPassed() internal view {$/;"	f
+_requireUnlockTimeIsAtLeastOneYearAfterSystemDeployment	src/LQTY/LockupContract.sol	/^    function _requireUnlockTimeIsAtLeastOneYearAfterSystemDeployment(uint256 _unlockTime) internal view {$/;"	f
+LQTYStaking	src/LQTY/LQTYStaking.sol	/^contract LQTYStaking is ILQTYStaking, Ownable, CheckContract, BaseMath {$/;"	c
+struct Snapshot	src/LQTY/LQTYStaking.sol	/^    struct Snapshot {$/;"	v
+LQTYTokenAddressSet	src/LQTY/LQTYStaking.sol	/^    event LQTYTokenAddressSet(address _lqtyTokenAddress);$/;"	e
+LUSDTokenAddressSet	src/LQTY/LQTYStaking.sol	/^    event LUSDTokenAddressSet(address _lusdTokenAddress);$/;"	e
+TroveManagerAddressSet	src/LQTY/LQTYStaking.sol	/^    event TroveManagerAddressSet(address _troveManager);$/;"	e
+BorrowerOperationsAddressSet	src/LQTY/LQTYStaking.sol	/^    event BorrowerOperationsAddressSet(address _borrowerOperationsAddress);$/;"	e
+ActivePoolAddressSet	src/LQTY/LQTYStaking.sol	/^    event ActivePoolAddressSet(address _activePoolAddress);$/;"	e
+StakeChanged	src/LQTY/LQTYStaking.sol	/^    event StakeChanged(address indexed staker, uint256 newStake);$/;"	e
+StakingGainsWithdrawn	src/LQTY/LQTYStaking.sol	/^    event StakingGainsWithdrawn(address indexed staker, uint256 LUSDGain, uint256 ETHGain);$/;"	e
+F_ETHUpdated	src/LQTY/LQTYStaking.sol	/^    event F_ETHUpdated(uint256 _F_ETH);$/;"	e
+F_LUSDUpdated	src/LQTY/LQTYStaking.sol	/^    event F_LUSDUpdated(uint256 _F_LUSD);$/;"	e
+TotalLQTYStakedUpdated	src/LQTY/LQTYStaking.sol	/^    event TotalLQTYStakedUpdated(uint256 _totalLQTYStaked);$/;"	e
+EtherSent	src/LQTY/LQTYStaking.sol	/^    event EtherSent(address _account, uint256 _amount);$/;"	e
+StakerSnapshotsUpdated	src/LQTY/LQTYStaking.sol	/^    event StakerSnapshotsUpdated(address _staker, uint256 _F_ETH, uint256 _F_LUSD);$/;"	e
+setAddresses	src/LQTY/LQTYStaking.sol	/^    function setAddresses($/;"	f
+stake	src/LQTY/LQTYStaking.sol	/^    function stake(uint256 _LQTYamount) external override {$/;"	f
+unstake	src/LQTY/LQTYStaking.sol	/^    function unstake(uint256 _LQTYamount) external override {$/;"	f
+increaseF_ETH	src/LQTY/LQTYStaking.sol	/^    function increaseF_ETH(uint256 _ETHFee) external override {$/;"	f
+increaseF_LUSD	src/LQTY/LQTYStaking.sol	/^    function increaseF_LUSD(uint256 _LUSDFee) external override {$/;"	f
+getPendingETHGain	src/LQTY/LQTYStaking.sol	/^    function getPendingETHGain(address _user) external view override returns (uint256) {$/;"	f
+_getPendingETHGain	src/LQTY/LQTYStaking.sol	/^    function _getPendingETHGain(address _user) internal view returns (uint256) {$/;"	f
+getPendingLUSDGain	src/LQTY/LQTYStaking.sol	/^    function getPendingLUSDGain(address _user) external view override returns (uint256) {$/;"	f
+_getPendingLUSDGain	src/LQTY/LQTYStaking.sol	/^    function _getPendingLUSDGain(address _user) internal view returns (uint256) {$/;"	f
+_updateUserSnapshots	src/LQTY/LQTYStaking.sol	/^    function _updateUserSnapshots(address _user) internal {$/;"	f
+_sendETHGainToUser	src/LQTY/LQTYStaking.sol	/^    function _sendETHGainToUser(uint256 ETHGain) internal {$/;"	f
+_requireCallerIsTroveManager	src/LQTY/LQTYStaking.sol	/^    function _requireCallerIsTroveManager() internal view {$/;"	f
+_requireCallerIsBorrowerOperations	src/LQTY/LQTYStaking.sol	/^    function _requireCallerIsBorrowerOperations() internal view {$/;"	f
+_requireCallerIsActivePool	src/LQTY/LQTYStaking.sol	/^    function _requireCallerIsActivePool() internal view {$/;"	f
+_requireUserHasStake	src/LQTY/LQTYStaking.sol	/^    function _requireUserHasStake(uint256 currentStake) internal pure {$/;"	f
+_requireNonZeroAmount	src/LQTY/LQTYStaking.sol	/^    function _requireNonZeroAmount(uint256 _amount) internal pure {$/;"	f
+CommunityIssuance	src/LQTY/CommunityIssuance.sol	/^contract CommunityIssuance is ICommunityIssuance, Ownable, CheckContract, BaseMath {$/;"	c
+LQTYTokenAddressSet	src/LQTY/CommunityIssuance.sol	/^    event LQTYTokenAddressSet(address _lqtyTokenAddress);$/;"	e
+StabilityPoolAddressSet	src/LQTY/CommunityIssuance.sol	/^    event StabilityPoolAddressSet(address _stabilityPoolAddress);$/;"	e
+TotalLQTYIssuedUpdated	src/LQTY/CommunityIssuance.sol	/^    event TotalLQTYIssuedUpdated(uint256 _totalLQTYIssued);$/;"	e
+setAddresses	src/LQTY/CommunityIssuance.sol	/^    function setAddresses(address _lqtyTokenAddress, address _stabilityPoolAddress) external override onlyOwner {$/;"	f
+issueLQTY	src/LQTY/CommunityIssuance.sol	/^    function issueLQTY() external override returns (uint256) {$/;"	f
+_getCumulativeIssuanceFraction	src/LQTY/CommunityIssuance.sol	/^    function _getCumulativeIssuanceFraction() internal view returns (uint256) {$/;"	f
+sendLQTY	src/LQTY/CommunityIssuance.sol	/^    function sendLQTY(address _account, uint256 _LQTYamount) external override {$/;"	f
+_requireCallerIsStabilityPool	src/LQTY/CommunityIssuance.sol	/^    function _requireCallerIsStabilityPool() internal view {$/;"	f
+LockupContractFactory	src/LQTY/LockupContractFactory.sol	/^contract LockupContractFactory is ILockupContractFactory, Ownable, CheckContract {$/;"	c
+LQTYTokenAddressSet	src/LQTY/LockupContractFactory.sol	/^    event LQTYTokenAddressSet(address _lqtyTokenAddress);$/;"	e
+LockupContractDeployedThroughFactory	src/LQTY/LockupContractFactory.sol	/^    event LockupContractDeployedThroughFactory($/;"	e
+setLQTYTokenAddress	src/LQTY/LockupContractFactory.sol	/^    function setLQTYTokenAddress(address _lqtyTokenAddress) external override onlyOwner {$/;"	f
+deployLockupContract	src/LQTY/LockupContractFactory.sol	/^    function deployLockupContract(address _beneficiary, uint256 _unlockTime) external override {$/;"	f
+isRegisteredLockup	src/LQTY/LockupContractFactory.sol	/^    function isRegisteredLockup(address _contractAddress) public view override returns (bool) {$/;"	f
+_requireLQTYAddressIsSet	src/LQTY/LockupContractFactory.sol	/^    function _requireLQTYAddressIsSet(address _lqtyTokenAddress) internal pure {$/;"	f
+LQTYToken	src/LQTY/LQTYToken.sol	/^contract LQTYToken is CheckContract, ILQTYToken {$/;"	c
+CommunityIssuanceAddressSet	src/LQTY/LQTYToken.sol	/^    event CommunityIssuanceAddressSet(address _communityIssuanceAddress);$/;"	e
+LQTYStakingAddressSet	src/LQTY/LQTYToken.sol	/^    event LQTYStakingAddressSet(address _lqtyStakingAddress);$/;"	e
+LockupContractFactoryAddressSet	src/LQTY/LQTYToken.sol	/^    event LockupContractFactoryAddressSet(address _lockupContractFactoryAddress);$/;"	e
+totalSupply	src/LQTY/LQTYToken.sol	/^    function totalSupply() external view override returns (uint256) {$/;"	f
+balanceOf	src/LQTY/LQTYToken.sol	/^    function balanceOf(address account) external view override returns (uint256) {$/;"	f
+getDeploymentStartTime	src/LQTY/LQTYToken.sol	/^    function getDeploymentStartTime() external view override returns (uint256) {$/;"	f
+getLpRewardsEntitlement	src/LQTY/LQTYToken.sol	/^    function getLpRewardsEntitlement() external view override returns (uint256) {$/;"	f
+transfer	src/LQTY/LQTYToken.sol	/^    function transfer(address recipient, uint256 amount) external override returns (bool) {$/;"	f
+allowance	src/LQTY/LQTYToken.sol	/^    function allowance(address owner, address spender) external view override returns (uint256) {$/;"	f
+approve	src/LQTY/LQTYToken.sol	/^    function approve(address spender, uint256 amount) external override returns (bool) {$/;"	f
+transferFrom	src/LQTY/LQTYToken.sol	/^    function transferFrom(address sender, address recipient, uint256 amount) external override returns (bool) {$/;"	f
+increaseAllowance	src/LQTY/LQTYToken.sol	/^    function increaseAllowance(address spender, uint256 addedValue) external override returns (bool) {$/;"	f
+decreaseAllowance	src/LQTY/LQTYToken.sol	/^    function decreaseAllowance(address spender, uint256 subtractedValue) external override returns (bool) {$/;"	f
+sendToLQTYStaking	src/LQTY/LQTYToken.sol	/^    function sendToLQTYStaking(address _sender, uint256 _amount) external override {$/;"	f
+the	src/LQTY/LQTYToken.sol	/^        if (_isFirstYear()) _requireSenderIsNotMultisig(_sender); \/\/ Prevent the multisig from staking LQTY$/;"	e
+domainSeparator	src/LQTY/LQTYToken.sol	/^    function domainSeparator() public view override returns (bytes32) {$/;"	f
+permit	src/LQTY/LQTYToken.sol	/^    function permit(address owner, address spender, uint256 amount, uint256 deadline, uint8 v, bytes32 r, bytes32 s)$/;"	f
+nonces	src/LQTY/LQTYToken.sol	/^    function nonces(address owner) external view override returns (uint256) {$/;"	f
+_chainID	src/LQTY/LQTYToken.sol	/^    function _chainID() private pure returns (uint256 chainID) {$/;"	f
+_buildDomainSeparator	src/LQTY/LQTYToken.sol	/^    function _buildDomainSeparator(bytes32 typeHash, bytes32 name, bytes32 version) private view returns (bytes32) {$/;"	f
+_transfer	src/LQTY/LQTYToken.sol	/^    function _transfer(address sender, address recipient, uint256 amount) internal {$/;"	f
+_mint	src/LQTY/LQTYToken.sol	/^    function _mint(address account, uint256 amount) internal {$/;"	f
+_approve	src/LQTY/LQTYToken.sol	/^    function _approve(address owner, address spender, uint256 amount) internal {$/;"	f
+_callerIsMultisig	src/LQTY/LQTYToken.sol	/^    function _callerIsMultisig() internal view returns (bool) {$/;"	f
+_isFirstYear	src/LQTY/LQTYToken.sol	/^    function _isFirstYear() internal view returns (bool) {$/;"	f
+_requireValidRecipient	src/LQTY/LQTYToken.sol	/^    function _requireValidRecipient(address _recipient) internal view {$/;"	f
+_requireRecipientIsRegisteredLC	src/LQTY/LQTYToken.sol	/^    function _requireRecipientIsRegisteredLC(address _recipient) internal view {$/;"	f
+_requireSenderIsNotMultisig	src/LQTY/LQTYToken.sol	/^    function _requireSenderIsNotMultisig(address _sender) internal view {$/;"	f
+_requireCallerIsNotMultisig	src/LQTY/LQTYToken.sol	/^    function _requireCallerIsNotMultisig() internal view {$/;"	f
+_requireCallerIsLQTYStaking	src/LQTY/LQTYToken.sol	/^    function _requireCallerIsLQTYStaking() internal view {$/;"	f
+name	src/LQTY/LQTYToken.sol	/^    function name() external view override returns (string memory) {$/;"	f
+symbol	src/LQTY/LQTYToken.sol	/^    function symbol() external view override returns (string memory) {$/;"	f
+decimals	src/LQTY/LQTYToken.sol	/^    function decimals() external view override returns (uint8) {$/;"	f
+version	src/LQTY/LQTYToken.sol	/^    function version() external view override returns (string memory) {$/;"	f
+permitTypeHash	src/LQTY/LQTYToken.sol	/^    function permitTypeHash() external view override returns (bytes32) {$/;"	f
+LQTYTokenAddressSet	src/Interfaces/ILQTYStaking.sol	/^    event LQTYTokenAddressSet(address _lqtyTokenAddress);$/;"	e
+LUSDTokenAddressSet	src/Interfaces/ILQTYStaking.sol	/^    event LUSDTokenAddressSet(address _lusdTokenAddress);$/;"	e
+TroveManagerAddressSet	src/Interfaces/ILQTYStaking.sol	/^    event TroveManagerAddressSet(address _troveManager);$/;"	e
+BorrowerOperationsAddressSet	src/Interfaces/ILQTYStaking.sol	/^    event BorrowerOperationsAddressSet(address _borrowerOperationsAddress);$/;"	e
+ActivePoolAddressSet	src/Interfaces/ILQTYStaking.sol	/^    event ActivePoolAddressSet(address _activePoolAddress);$/;"	e
+StakeChanged	src/Interfaces/ILQTYStaking.sol	/^    event StakeChanged(address indexed staker, uint256 newStake);$/;"	e
+StakingGainsWithdrawn	src/Interfaces/ILQTYStaking.sol	/^    event StakingGainsWithdrawn(address indexed staker, uint256 LUSDGain, uint256 ETHGain);$/;"	e
+F_ETHUpdated	src/Interfaces/ILQTYStaking.sol	/^    event F_ETHUpdated(uint256 _F_ETH);$/;"	e
+F_LUSDUpdated	src/Interfaces/ILQTYStaking.sol	/^    event F_LUSDUpdated(uint256 _F_LUSD);$/;"	e
+TotalLQTYStakedUpdated	src/Interfaces/ILQTYStaking.sol	/^    event TotalLQTYStakedUpdated(uint256 _totalLQTYStaked);$/;"	e
+EtherSent	src/Interfaces/ILQTYStaking.sol	/^    event EtherSent(address _account, uint256 _amount);$/;"	e
+StakerSnapshotsUpdated	src/Interfaces/ILQTYStaking.sol	/^    event StakerSnapshotsUpdated(address _staker, uint256 _F_ETH, uint256 _F_LUSD);$/;"	e
+setAddresses	src/Interfaces/ILQTYStaking.sol	/^    function setAddresses($/;"	f
+stake	src/Interfaces/ILQTYStaking.sol	/^    function stake(uint256 _LQTYamount) external;$/;"	f
+unstake	src/Interfaces/ILQTYStaking.sol	/^    function unstake(uint256 _LQTYamount) external;$/;"	f
+increaseF_ETH	src/Interfaces/ILQTYStaking.sol	/^    function increaseF_ETH(uint256 _ETHFee) external;$/;"	f
+increaseF_LUSD	src/Interfaces/ILQTYStaking.sol	/^    function increaseF_LUSD(uint256 _LQTYFee) external;$/;"	f
+getPendingETHGain	src/Interfaces/ILQTYStaking.sol	/^    function getPendingETHGain(address _user) external view returns (uint256);$/;"	f
+getPendingLUSDGain	src/Interfaces/ILQTYStaking.sol	/^    function getPendingLUSDGain(address _user) external view returns (uint256);$/;"	f
+CommunityIssuanceAddressSet	src/Interfaces/ILQTYToken.sol	/^    event CommunityIssuanceAddressSet(address _communityIssuanceAddress);$/;"	e
+LQTYStakingAddressSet	src/Interfaces/ILQTYToken.sol	/^    event LQTYStakingAddressSet(address _lqtyStakingAddress);$/;"	e
+LockupContractFactoryAddressSet	src/Interfaces/ILQTYToken.sol	/^    event LockupContractFactoryAddressSet(address _lockupContractFactoryAddress);$/;"	e
+sendToLQTYStaking	src/Interfaces/ILQTYToken.sol	/^    function sendToLQTYStaking(address _sender, uint256 _amount) external;$/;"	f
+getDeploymentStartTime	src/Interfaces/ILQTYToken.sol	/^    function getDeploymentStartTime() external view returns (uint256);$/;"	f
+getLpRewardsEntitlement	src/Interfaces/ILQTYToken.sol	/^    function getLpRewardsEntitlement() external view returns (uint256);$/;"	f
+LQTYTokenAddressSet	src/Interfaces/ICommunityIssuance.sol	/^    event LQTYTokenAddressSet(address _lqtyTokenAddress);$/;"	e
+StabilityPoolAddressSet	src/Interfaces/ICommunityIssuance.sol	/^    event StabilityPoolAddressSet(address _stabilityPoolAddress);$/;"	e
+TotalLQTYIssuedUpdated	src/Interfaces/ICommunityIssuance.sol	/^    event TotalLQTYIssuedUpdated(uint256 _totalLQTYIssued);$/;"	e
+setAddresses	src/Interfaces/ICommunityIssuance.sol	/^    function setAddresses(address _lqtyTokenAddress, address _stabilityPoolAddress) external;$/;"	f
+issueLQTY	src/Interfaces/ICommunityIssuance.sol	/^    function issueLQTY() external returns (uint256);$/;"	f
+sendLQTY	src/Interfaces/ICommunityIssuance.sol	/^    function sendLQTY(address _account, uint256 _LQTYamount) external;$/;"	f
+ETHBalanceUpdated	src/Interfaces/IPool.sol	/^    event ETHBalanceUpdated(uint256 _newBalance);$/;"	e
+LUSDBalanceUpdated	src/Interfaces/IPool.sol	/^    event LUSDBalanceUpdated(uint256 _newBalance);$/;"	e
+ActivePoolAddressChanged	src/Interfaces/IPool.sol	/^    event ActivePoolAddressChanged(address _newActivePoolAddress);$/;"	e
+DefaultPoolAddressChanged	src/Interfaces/IPool.sol	/^    event DefaultPoolAddressChanged(address _newDefaultPoolAddress);$/;"	e
+StabilityPoolAddressChanged	src/Interfaces/IPool.sol	/^    event StabilityPoolAddressChanged(address _newStabilityPoolAddress);$/;"	e
+EtherSent	src/Interfaces/IPool.sol	/^    event EtherSent(address _to, uint256 _amount);$/;"	e
+getETH	src/Interfaces/IPool.sol	/^    function getETH() external view returns (uint256);$/;"	f
+getLUSDDebt	src/Interfaces/IPool.sol	/^    function getLUSDDebt() external view returns (uint256);$/;"	f
+increaseLUSDDebt	src/Interfaces/IPool.sol	/^    function increaseLUSDDebt(uint256 _amount) external;$/;"	f
+decreaseLUSDDebt	src/Interfaces/IPool.sol	/^    function decreaseLUSDDebt(uint256 _amount) external;$/;"	f
+LastGoodPriceUpdated	src/Interfaces/IPriceFeed.sol	/^    event LastGoodPriceUpdated(uint256 _lastGoodPrice);$/;"	e
+fetchPrice	src/Interfaces/IPriceFeed.sol	/^    function fetchPrice() external returns (uint256);$/;"	f
+TroveManagerAddressChanged	src/Interfaces/IDefaultPool.sol	/^    event TroveManagerAddressChanged(address _newTroveManagerAddress);$/;"	e
+DefaultPoolLUSDDebtUpdated	src/Interfaces/IDefaultPool.sol	/^    event DefaultPoolLUSDDebtUpdated(uint256 _LUSDDebt);$/;"	e
+DefaultPoolETHBalanceUpdated	src/Interfaces/IDefaultPool.sol	/^    event DefaultPoolETHBalanceUpdated(uint256 _ETH);$/;"	e
+sendETHToActivePool	src/Interfaces/IDefaultPool.sol	/^    function sendETHToActivePool(uint256 _amount) external;$/;"	f
+BorrowerOperationsAddressChanged	src/Interfaces/ICollSurplusPool.sol	/^    event BorrowerOperationsAddressChanged(address _newBorrowerOperationsAddress);$/;"	e
+TroveManagerAddressChanged	src/Interfaces/ICollSurplusPool.sol	/^    event TroveManagerAddressChanged(address _newTroveManagerAddress);$/;"	e
+ActivePoolAddressChanged	src/Interfaces/ICollSurplusPool.sol	/^    event ActivePoolAddressChanged(address _newActivePoolAddress);$/;"	e
+CollBalanceUpdated	src/Interfaces/ICollSurplusPool.sol	/^    event CollBalanceUpdated(address indexed _account, uint256 _newBalance);$/;"	e
+EtherSent	src/Interfaces/ICollSurplusPool.sol	/^    event EtherSent(address _to, uint256 _amount);$/;"	e
+setAddresses	src/Interfaces/ICollSurplusPool.sol	/^    function setAddresses(address _borrowerOperationsAddress, address _troveManagerAddress, address _activePoolAddress)$/;"	f
+getETH	src/Interfaces/ICollSurplusPool.sol	/^    function getETH() external view returns (uint256);$/;"	f
+getCollateral	src/Interfaces/ICollSurplusPool.sol	/^    function getCollateral(address _account) external view returns (uint256);$/;"	f
+accountSurplus	src/Interfaces/ICollSurplusPool.sol	/^    function accountSurplus(address _account, uint256 _amount) external;$/;"	f
+claimColl	src/Interfaces/ICollSurplusPool.sol	/^    function claimColl(address _account) external;$/;"	f
+occurs	src/Interfaces/IStabilityPool.sol	/^ * An LQTY issuance event occurs at every deposit operation, and every liquidation.$/;"	e
+StabilityPoolETHBalanceUpdated	src/Interfaces/IStabilityPool.sol	/^    event StabilityPoolETHBalanceUpdated(uint256 _newBalance);$/;"	e
+StabilityPoolLUSDBalanceUpdated	src/Interfaces/IStabilityPool.sol	/^    event StabilityPoolLUSDBalanceUpdated(uint256 _newBalance);$/;"	e
+BorrowerOperationsAddressChanged	src/Interfaces/IStabilityPool.sol	/^    event BorrowerOperationsAddressChanged(address _newBorrowerOperationsAddress);$/;"	e
+TroveManagerAddressChanged	src/Interfaces/IStabilityPool.sol	/^    event TroveManagerAddressChanged(address _newTroveManagerAddress);$/;"	e
+ActivePoolAddressChanged	src/Interfaces/IStabilityPool.sol	/^    event ActivePoolAddressChanged(address _newActivePoolAddress);$/;"	e
+DefaultPoolAddressChanged	src/Interfaces/IStabilityPool.sol	/^    event DefaultPoolAddressChanged(address _newDefaultPoolAddress);$/;"	e
+LUSDTokenAddressChanged	src/Interfaces/IStabilityPool.sol	/^    event LUSDTokenAddressChanged(address _newLUSDTokenAddress);$/;"	e
+SortedTrovesAddressChanged	src/Interfaces/IStabilityPool.sol	/^    event SortedTrovesAddressChanged(address _newSortedTrovesAddress);$/;"	e
+PriceFeedAddressChanged	src/Interfaces/IStabilityPool.sol	/^    event PriceFeedAddressChanged(address _newPriceFeedAddress);$/;"	e
+CommunityIssuanceAddressChanged	src/Interfaces/IStabilityPool.sol	/^    event CommunityIssuanceAddressChanged(address _newCommunityIssuanceAddress);$/;"	e
+P_Updated	src/Interfaces/IStabilityPool.sol	/^    event P_Updated(uint256 _P);$/;"	e
+S_Updated	src/Interfaces/IStabilityPool.sol	/^    event S_Updated(uint256 _S, uint128 _epoch, uint128 _scale);$/;"	e
+G_Updated	src/Interfaces/IStabilityPool.sol	/^    event G_Updated(uint256 _G, uint128 _epoch, uint128 _scale);$/;"	e
+EpochUpdated	src/Interfaces/IStabilityPool.sol	/^    event EpochUpdated(uint128 _currentEpoch);$/;"	e
+ScaleUpdated	src/Interfaces/IStabilityPool.sol	/^    event ScaleUpdated(uint128 _currentScale);$/;"	e
+FrontEndRegistered	src/Interfaces/IStabilityPool.sol	/^    event FrontEndRegistered(address indexed _frontEnd, uint256 _kickbackRate);$/;"	e
+FrontEndTagSet	src/Interfaces/IStabilityPool.sol	/^    event FrontEndTagSet(address indexed _depositor, address indexed _frontEnd);$/;"	e
+DepositSnapshotUpdated	src/Interfaces/IStabilityPool.sol	/^    event DepositSnapshotUpdated(address indexed _depositor, uint256 _P, uint256 _S, uint256 _G);$/;"	e
+FrontEndSnapshotUpdated	src/Interfaces/IStabilityPool.sol	/^    event FrontEndSnapshotUpdated(address indexed _frontEnd, uint256 _P, uint256 _G);$/;"	e
+UserDepositChanged	src/Interfaces/IStabilityPool.sol	/^    event UserDepositChanged(address indexed _depositor, uint256 _newDeposit);$/;"	e
+FrontEndStakeChanged	src/Interfaces/IStabilityPool.sol	/^    event FrontEndStakeChanged(address indexed _frontEnd, uint256 _newFrontEndStake, address _depositor);$/;"	e
+ETHGainWithdrawn	src/Interfaces/IStabilityPool.sol	/^    event ETHGainWithdrawn(address indexed _depositor, uint256 _ETH, uint256 _LUSDLoss);$/;"	e
+LQTYPaidToDepositor	src/Interfaces/IStabilityPool.sol	/^    event LQTYPaidToDepositor(address indexed _depositor, uint256 _LQTY);$/;"	e
+LQTYPaidToFrontEnd	src/Interfaces/IStabilityPool.sol	/^    event LQTYPaidToFrontEnd(address indexed _frontEnd, uint256 _LQTY);$/;"	e
+EtherSent	src/Interfaces/IStabilityPool.sol	/^    event EtherSent(address _to, uint256 _amount);$/;"	e
+setAddresses	src/Interfaces/IStabilityPool.sol	/^    function setAddresses($/;"	f
+provideToSP	src/Interfaces/IStabilityPool.sol	/^    function provideToSP(uint256 _amount, address _frontEndTag) external;$/;"	f
+withdrawFromSP	src/Interfaces/IStabilityPool.sol	/^    function withdrawFromSP(uint256 _amount) external;$/;"	f
+withdrawETHGainToTrove	src/Interfaces/IStabilityPool.sol	/^    function withdrawETHGainToTrove(address _upperHint, address _lowerHint) external;$/;"	f
+registerFrontEnd	src/Interfaces/IStabilityPool.sol	/^    function registerFrontEnd(uint256 _kickbackRate) external;$/;"	f
+offset	src/Interfaces/IStabilityPool.sol	/^    function offset(uint256 _debt, uint256 _coll) external;$/;"	f
+getETH	src/Interfaces/IStabilityPool.sol	/^    function getETH() external view returns (uint256);$/;"	f
+getTotalLUSDDeposits	src/Interfaces/IStabilityPool.sol	/^    function getTotalLUSDDeposits() external view returns (uint256);$/;"	f
+getDepositorETHGain	src/Interfaces/IStabilityPool.sol	/^    function getDepositorETHGain(address _depositor) external view returns (uint256);$/;"	f
+getDepositorLQTYGain	src/Interfaces/IStabilityPool.sol	/^    function getDepositorLQTYGain(address _depositor) external view returns (uint256);$/;"	f
+getFrontEndLQTYGain	src/Interfaces/IStabilityPool.sol	/^    function getFrontEndLQTYGain(address _frontEnd) external view returns (uint256);$/;"	f
+getCompoundedLUSDDeposit	src/Interfaces/IStabilityPool.sol	/^    function getCompoundedLUSDDeposit(address _depositor) external view returns (uint256);$/;"	f
+getCompoundedFrontEndStake	src/Interfaces/IStabilityPool.sol	/^    function getCompoundedFrontEndStake(address _frontEnd) external view returns (uint256);$/;"	f
+TroveManagerAddressChanged	src/Interfaces/IBorrowerOperations.sol	/^    event TroveManagerAddressChanged(address _newTroveManagerAddress);$/;"	e
+ActivePoolAddressChanged	src/Interfaces/IBorrowerOperations.sol	/^    event ActivePoolAddressChanged(address _activePoolAddress);$/;"	e
+DefaultPoolAddressChanged	src/Interfaces/IBorrowerOperations.sol	/^    event DefaultPoolAddressChanged(address _defaultPoolAddress);$/;"	e
+StabilityPoolAddressChanged	src/Interfaces/IBorrowerOperations.sol	/^    event StabilityPoolAddressChanged(address _stabilityPoolAddress);$/;"	e
+GasPoolAddressChanged	src/Interfaces/IBorrowerOperations.sol	/^    event GasPoolAddressChanged(address _gasPoolAddress);$/;"	e
+CollSurplusPoolAddressChanged	src/Interfaces/IBorrowerOperations.sol	/^    event CollSurplusPoolAddressChanged(address _collSurplusPoolAddress);$/;"	e
+PriceFeedAddressChanged	src/Interfaces/IBorrowerOperations.sol	/^    event PriceFeedAddressChanged(address _newPriceFeedAddress);$/;"	e
+SortedTrovesAddressChanged	src/Interfaces/IBorrowerOperations.sol	/^    event SortedTrovesAddressChanged(address _sortedTrovesAddress);$/;"	e
+LUSDTokenAddressChanged	src/Interfaces/IBorrowerOperations.sol	/^    event LUSDTokenAddressChanged(address _lusdTokenAddress);$/;"	e
+LQTYStakingAddressChanged	src/Interfaces/IBorrowerOperations.sol	/^    event LQTYStakingAddressChanged(address _lqtyStakingAddress);$/;"	e
+TroveCreated	src/Interfaces/IBorrowerOperations.sol	/^    event TroveCreated(address indexed _borrower, uint256 arrayIndex);$/;"	e
+TroveUpdated	src/Interfaces/IBorrowerOperations.sol	/^    event TroveUpdated(address indexed _borrower, uint256 _debt, uint256 _coll, uint256 stake, uint8 operation);$/;"	e
+LUSDBorrowingFeePaid	src/Interfaces/IBorrowerOperations.sol	/^    event LUSDBorrowingFeePaid(address indexed _borrower, uint256 _LUSDFee);$/;"	e
+setAddresses	src/Interfaces/IBorrowerOperations.sol	/^    function setAddresses($/;"	f
+openTrove	src/Interfaces/IBorrowerOperations.sol	/^    function openTrove(uint256 _maxFee, uint256 _LUSDAmount, address _upperHint, address _lowerHint) external payable;$/;"	f
+addColl	src/Interfaces/IBorrowerOperations.sol	/^    function addColl(address _upperHint, address _lowerHint) external payable;$/;"	f
+moveETHGainToTrove	src/Interfaces/IBorrowerOperations.sol	/^    function moveETHGainToTrove(address _user, address _upperHint, address _lowerHint) external payable;$/;"	f
+withdrawColl	src/Interfaces/IBorrowerOperations.sol	/^    function withdrawColl(uint256 _amount, address _upperHint, address _lowerHint) external;$/;"	f
+withdrawLUSD	src/Interfaces/IBorrowerOperations.sol	/^    function withdrawLUSD(uint256 _maxFee, uint256 _amount, address _upperHint, address _lowerHint) external;$/;"	f
+repayLUSD	src/Interfaces/IBorrowerOperations.sol	/^    function repayLUSD(uint256 _amount, address _upperHint, address _lowerHint) external;$/;"	f
+closeTrove	src/Interfaces/IBorrowerOperations.sol	/^    function closeTrove() external;$/;"	f
+adjustTrove	src/Interfaces/IBorrowerOperations.sol	/^    function adjustTrove($/;"	f
+claimCollateral	src/Interfaces/IBorrowerOperations.sol	/^    function claimCollateral() external;$/;"	f
+getCompositeDebt	src/Interfaces/IBorrowerOperations.sol	/^    function getCompositeDebt(uint256 _debt) external pure returns (uint256);$/;"	f
+getTellorCurrentValue	src/Interfaces/ITellorCaller.sol	/^    function getTellorCurrentValue(uint256 _requestId) external view returns (bool, uint256, uint256);$/;"	f
+priceFeed	src/Interfaces/ILiquityBase.sol	/^    function priceFeed() external view returns (IPriceFeed);$/;"	f
+SortedTrovesAddressChanged	src/Interfaces/ISortedTroves.sol	/^    event SortedTrovesAddressChanged(address _sortedDoublyLLAddress);$/;"	e
+BorrowerOperationsAddressChanged	src/Interfaces/ISortedTroves.sol	/^    event BorrowerOperationsAddressChanged(address _borrowerOperationsAddress);$/;"	e
+NodeAdded	src/Interfaces/ISortedTroves.sol	/^    event NodeAdded(address _id, uint256 _NICR);$/;"	e
+NodeRemoved	src/Interfaces/ISortedTroves.sol	/^    event NodeRemoved(address _id);$/;"	e
+setParams	src/Interfaces/ISortedTroves.sol	/^    function setParams(uint256 _size, address _TroveManagerAddress, address _borrowerOperationsAddress) external;$/;"	f
+insert	src/Interfaces/ISortedTroves.sol	/^    function insert(address _id, uint256 _ICR, address _prevId, address _nextId) external;$/;"	f
+remove	src/Interfaces/ISortedTroves.sol	/^    function remove(address _id) external;$/;"	f
+reInsert	src/Interfaces/ISortedTroves.sol	/^    function reInsert(address _id, uint256 _newICR, address _prevId, address _nextId) external;$/;"	f
+contains	src/Interfaces/ISortedTroves.sol	/^    function contains(address _id) external view returns (bool);$/;"	f
+isFull	src/Interfaces/ISortedTroves.sol	/^    function isFull() external view returns (bool);$/;"	f
+isEmpty	src/Interfaces/ISortedTroves.sol	/^    function isEmpty() external view returns (bool);$/;"	f
+getSize	src/Interfaces/ISortedTroves.sol	/^    function getSize() external view returns (uint256);$/;"	f
+getMaxSize	src/Interfaces/ISortedTroves.sol	/^    function getMaxSize() external view returns (uint256);$/;"	f
+getFirst	src/Interfaces/ISortedTroves.sol	/^    function getFirst() external view returns (address);$/;"	f
+getLast	src/Interfaces/ISortedTroves.sol	/^    function getLast() external view returns (address);$/;"	f
+getNext	src/Interfaces/ISortedTroves.sol	/^    function getNext(address _id) external view returns (address);$/;"	f
+getPrev	src/Interfaces/ISortedTroves.sol	/^    function getPrev(address _id) external view returns (address);$/;"	f
+validInsertPosition	src/Interfaces/ISortedTroves.sol	/^    function validInsertPosition(uint256 _ICR, address _prevId, address _nextId) external view returns (bool);$/;"	f
+findInsertPosition	src/Interfaces/ISortedTroves.sol	/^    function findInsertPosition(uint256 _ICR, address _prevId, address _nextId)$/;"	f
+TroveManagerAddressChanged	src/Interfaces/ILUSDToken.sol	/^    event TroveManagerAddressChanged(address _troveManagerAddress);$/;"	e
+StabilityPoolAddressChanged	src/Interfaces/ILUSDToken.sol	/^    event StabilityPoolAddressChanged(address _newStabilityPoolAddress);$/;"	e
+BorrowerOperationsAddressChanged	src/Interfaces/ILUSDToken.sol	/^    event BorrowerOperationsAddressChanged(address _newBorrowerOperationsAddress);$/;"	e
+LUSDTokenBalanceUpdated	src/Interfaces/ILUSDToken.sol	/^    event LUSDTokenBalanceUpdated(address _user, uint256 _amount);$/;"	e
+mint	src/Interfaces/ILUSDToken.sol	/^    function mint(address _account, uint256 _amount) external;$/;"	f
+burn	src/Interfaces/ILUSDToken.sol	/^    function burn(address _account, uint256 _amount) external;$/;"	f
+sendToPool	src/Interfaces/ILUSDToken.sol	/^    function sendToPool(address _sender, address poolAddress, uint256 _amount) external;$/;"	f
+returnFromPool	src/Interfaces/ILUSDToken.sol	/^    function returnFromPool(address poolAddress, address user, uint256 _amount) external;$/;"	f
+BorrowerOperationsAddressChanged	src/Interfaces/ITroveManager.sol	/^    event BorrowerOperationsAddressChanged(address _newBorrowerOperationsAddress);$/;"	e
+PriceFeedAddressChanged	src/Interfaces/ITroveManager.sol	/^    event PriceFeedAddressChanged(address _newPriceFeedAddress);$/;"	e
+LUSDTokenAddressChanged	src/Interfaces/ITroveManager.sol	/^    event LUSDTokenAddressChanged(address _newLUSDTokenAddress);$/;"	e
+ActivePoolAddressChanged	src/Interfaces/ITroveManager.sol	/^    event ActivePoolAddressChanged(address _activePoolAddress);$/;"	e
+DefaultPoolAddressChanged	src/Interfaces/ITroveManager.sol	/^    event DefaultPoolAddressChanged(address _defaultPoolAddress);$/;"	e
+StabilityPoolAddressChanged	src/Interfaces/ITroveManager.sol	/^    event StabilityPoolAddressChanged(address _stabilityPoolAddress);$/;"	e
+GasPoolAddressChanged	src/Interfaces/ITroveManager.sol	/^    event GasPoolAddressChanged(address _gasPoolAddress);$/;"	e
+CollSurplusPoolAddressChanged	src/Interfaces/ITroveManager.sol	/^    event CollSurplusPoolAddressChanged(address _collSurplusPoolAddress);$/;"	e
+SortedTrovesAddressChanged	src/Interfaces/ITroveManager.sol	/^    event SortedTrovesAddressChanged(address _sortedTrovesAddress);$/;"	e
+LQTYTokenAddressChanged	src/Interfaces/ITroveManager.sol	/^    event LQTYTokenAddressChanged(address _lqtyTokenAddress);$/;"	e
+LQTYStakingAddressChanged	src/Interfaces/ITroveManager.sol	/^    event LQTYStakingAddressChanged(address _lqtyStakingAddress);$/;"	e
+Liquidation	src/Interfaces/ITroveManager.sol	/^    event Liquidation($/;"	e
+Redemption	src/Interfaces/ITroveManager.sol	/^    event Redemption(uint256 _attemptedLUSDAmount, uint256 _actualLUSDAmount, uint256 _ETHSent, uint256 _ETHFee);$/;"	e
+TroveUpdated	src/Interfaces/ITroveManager.sol	/^    event TroveUpdated(address indexed _borrower, uint256 _debt, uint256 _coll, uint256 stake, uint8 operation);$/;"	e
+TroveLiquidated	src/Interfaces/ITroveManager.sol	/^    event TroveLiquidated(address indexed _borrower, uint256 _debt, uint256 _coll, uint8 operation);$/;"	e
+BaseRateUpdated	src/Interfaces/ITroveManager.sol	/^    event BaseRateUpdated(uint256 _baseRate);$/;"	e
+LastFeeOpTimeUpdated	src/Interfaces/ITroveManager.sol	/^    event LastFeeOpTimeUpdated(uint256 _lastFeeOpTime);$/;"	e
+TotalStakesUpdated	src/Interfaces/ITroveManager.sol	/^    event TotalStakesUpdated(uint256 _newTotalStakes);$/;"	e
+SystemSnapshotsUpdated	src/Interfaces/ITroveManager.sol	/^    event SystemSnapshotsUpdated(uint256 _totalStakesSnapshot, uint256 _totalCollateralSnapshot);$/;"	e
+LTermsUpdated	src/Interfaces/ITroveManager.sol	/^    event LTermsUpdated(uint256 _L_ETH, uint256 _L_LUSDDebt);$/;"	e
+TroveSnapshotsUpdated	src/Interfaces/ITroveManager.sol	/^    event TroveSnapshotsUpdated(uint256 _L_ETH, uint256 _L_LUSDDebt);$/;"	e
+TroveIndexUpdated	src/Interfaces/ITroveManager.sol	/^    event TroveIndexUpdated(address _borrower, uint256 _newIndex);$/;"	e
+setAddresses	src/Interfaces/ITroveManager.sol	/^    function setAddresses($/;"	f
+stabilityPool	src/Interfaces/ITroveManager.sol	/^    function stabilityPool() external view returns (IStabilityPool);$/;"	f
+lusdToken	src/Interfaces/ITroveManager.sol	/^    function lusdToken() external view returns (ILUSDToken);$/;"	f
+lqtyToken	src/Interfaces/ITroveManager.sol	/^    function lqtyToken() external view returns (ILQTYToken);$/;"	f
+lqtyStaking	src/Interfaces/ITroveManager.sol	/^    function lqtyStaking() external view returns (ILQTYStaking);$/;"	f
+getTroveOwnersCount	src/Interfaces/ITroveManager.sol	/^    function getTroveOwnersCount() external view returns (uint256);$/;"	f
+getTroveFromTroveOwnersArray	src/Interfaces/ITroveManager.sol	/^    function getTroveFromTroveOwnersArray(uint256 _index) external view returns (address);$/;"	f
+getNominalICR	src/Interfaces/ITroveManager.sol	/^    function getNominalICR(address _borrower) external view returns (uint256);$/;"	f
+getCurrentICR	src/Interfaces/ITroveManager.sol	/^    function getCurrentICR(address _borrower, uint256 _price) external view returns (uint256);$/;"	f
+liquidate	src/Interfaces/ITroveManager.sol	/^    function liquidate(address _borrower) external;$/;"	f
+liquidateTroves	src/Interfaces/ITroveManager.sol	/^    function liquidateTroves(uint256 _n) external;$/;"	f
+batchLiquidateTroves	src/Interfaces/ITroveManager.sol	/^    function batchLiquidateTroves(address[] calldata _troveArray) external;$/;"	f
+redeemCollateral	src/Interfaces/ITroveManager.sol	/^    function redeemCollateral($/;"	f
+updateStakeAndTotalStakes	src/Interfaces/ITroveManager.sol	/^    function updateStakeAndTotalStakes(address _borrower) external returns (uint256);$/;"	f
+updateTroveRewardSnapshots	src/Interfaces/ITroveManager.sol	/^    function updateTroveRewardSnapshots(address _borrower) external;$/;"	f
+addTroveOwnerToArray	src/Interfaces/ITroveManager.sol	/^    function addTroveOwnerToArray(address _borrower) external returns (uint256 index);$/;"	f
+applyPendingRewards	src/Interfaces/ITroveManager.sol	/^    function applyPendingRewards(address _borrower) external;$/;"	f
+getPendingETHReward	src/Interfaces/ITroveManager.sol	/^    function getPendingETHReward(address _borrower) external view returns (uint256);$/;"	f
+getPendingLUSDDebtReward	src/Interfaces/ITroveManager.sol	/^    function getPendingLUSDDebtReward(address _borrower) external view returns (uint256);$/;"	f
+hasPendingRewards	src/Interfaces/ITroveManager.sol	/^    function hasPendingRewards(address _borrower) external view returns (bool);$/;"	f
+getEntireDebtAndColl	src/Interfaces/ITroveManager.sol	/^    function getEntireDebtAndColl(address _borrower)$/;"	f
+closeTrove	src/Interfaces/ITroveManager.sol	/^    function closeTrove(address _borrower) external;$/;"	f
+removeStake	src/Interfaces/ITroveManager.sol	/^    function removeStake(address _borrower) external;$/;"	f
+getRedemptionRate	src/Interfaces/ITroveManager.sol	/^    function getRedemptionRate() external view returns (uint256);$/;"	f
+getRedemptionRateWithDecay	src/Interfaces/ITroveManager.sol	/^    function getRedemptionRateWithDecay() external view returns (uint256);$/;"	f
+getRedemptionFeeWithDecay	src/Interfaces/ITroveManager.sol	/^    function getRedemptionFeeWithDecay(uint256 _ETHDrawn) external view returns (uint256);$/;"	f
+getBorrowingRate	src/Interfaces/ITroveManager.sol	/^    function getBorrowingRate() external view returns (uint256);$/;"	f
+getBorrowingRateWithDecay	src/Interfaces/ITroveManager.sol	/^    function getBorrowingRateWithDecay() external view returns (uint256);$/;"	f
+getBorrowingFee	src/Interfaces/ITroveManager.sol	/^    function getBorrowingFee(uint256 LUSDDebt) external view returns (uint256);$/;"	f
+getBorrowingFeeWithDecay	src/Interfaces/ITroveManager.sol	/^    function getBorrowingFeeWithDecay(uint256 _LUSDDebt) external view returns (uint256);$/;"	f
+decayBaseRateFromBorrowing	src/Interfaces/ITroveManager.sol	/^    function decayBaseRateFromBorrowing() external;$/;"	f
+getTroveStatus	src/Interfaces/ITroveManager.sol	/^    function getTroveStatus(address _borrower) external view returns (uint256);$/;"	f
+getTroveStake	src/Interfaces/ITroveManager.sol	/^    function getTroveStake(address _borrower) external view returns (uint256);$/;"	f
+getTroveDebt	src/Interfaces/ITroveManager.sol	/^    function getTroveDebt(address _borrower) external view returns (uint256);$/;"	f
+getTroveColl	src/Interfaces/ITroveManager.sol	/^    function getTroveColl(address _borrower) external view returns (uint256);$/;"	f
+setTroveStatus	src/Interfaces/ITroveManager.sol	/^    function setTroveStatus(address _borrower, uint256 num) external;$/;"	f
+increaseTroveColl	src/Interfaces/ITroveManager.sol	/^    function increaseTroveColl(address _borrower, uint256 _collIncrease) external returns (uint256);$/;"	f
+decreaseTroveColl	src/Interfaces/ITroveManager.sol	/^    function decreaseTroveColl(address _borrower, uint256 _collDecrease) external returns (uint256);$/;"	f
+increaseTroveDebt	src/Interfaces/ITroveManager.sol	/^    function increaseTroveDebt(address _borrower, uint256 _debtIncrease) external returns (uint256);$/;"	f
+decreaseTroveDebt	src/Interfaces/ITroveManager.sol	/^    function decreaseTroveDebt(address _borrower, uint256 _collDecrease) external returns (uint256);$/;"	f
+getTCR	src/Interfaces/ITroveManager.sol	/^    function getTCR(uint256 _price) external view returns (uint256);$/;"	f
+checkRecoveryMode	src/Interfaces/ITroveManager.sol	/^    function checkRecoveryMode(uint256 _price) external view returns (bool);$/;"	f
+LQTYTokenAddressSet	src/Interfaces/ILockupContractFactory.sol	/^    event LQTYTokenAddressSet(address _lqtyTokenAddress);$/;"	e
+LockupContractDeployedThroughFactory	src/Interfaces/ILockupContractFactory.sol	/^    event LockupContractDeployedThroughFactory($/;"	e
+setLQTYTokenAddress	src/Interfaces/ILockupContractFactory.sol	/^    function setLQTYTokenAddress(address _lqtyTokenAddress) external;$/;"	f
+deployLockupContract	src/Interfaces/ILockupContractFactory.sol	/^    function deployLockupContract(address _beneficiary, uint256 _unlockTime) external;$/;"	f
+isRegisteredLockup	src/Interfaces/ILockupContractFactory.sol	/^    function isRegisteredLockup(address _addr) external view returns (bool);$/;"	f
+BorrowerOperationsAddressChanged	src/Interfaces/IActivePool.sol	/^    event BorrowerOperationsAddressChanged(address _newBorrowerOperationsAddress);$/;"	e
+TroveManagerAddressChanged	src/Interfaces/IActivePool.sol	/^    event TroveManagerAddressChanged(address _newTroveManagerAddress);$/;"	e
+ActivePoolLUSDDebtUpdated	src/Interfaces/IActivePool.sol	/^    event ActivePoolLUSDDebtUpdated(uint256 _LUSDDebt);$/;"	e
+ActivePoolETHBalanceUpdated	src/Interfaces/IActivePool.sol	/^    event ActivePoolETHBalanceUpdated(uint256 _ETH);$/;"	e
+sendETH	src/Interfaces/IActivePool.sol	/^    function sendETH(address _account, uint256 _amount) external;$/;"	f
+GasPool	src/GasPool.sol	/^contract GasPool {$/;"	c
+LQTYStakingScript	src/Proxy/LQTYStakingScript.sol	/^contract LQTYStakingScript is CheckContract {$/;"	c
+stake	src/Proxy/LQTYStakingScript.sol	/^    function stake(uint256 _LQTYamount) external {$/;"	f
+ETHTransferScript	src/Proxy/ETHTransferScript.sol	/^contract ETHTransferScript {$/;"	c
+transferETH	src/Proxy/ETHTransferScript.sol	/^    function transferETH(address _recipient, uint256 _amount) external returns (bool) {$/;"	f
+TokenScript	src/Proxy/TokenScript.sol	/^contract TokenScript is CheckContract {$/;"	c
+transfer	src/Proxy/TokenScript.sol	/^    function transfer(address recipient, uint256 amount) external returns (bool) {$/;"	f
+allowance	src/Proxy/TokenScript.sol	/^    function allowance(address owner, address spender) external view returns (uint256) {$/;"	f
+approve	src/Proxy/TokenScript.sol	/^    function approve(address spender, uint256 amount) external returns (bool) {$/;"	f
+transferFrom	src/Proxy/TokenScript.sol	/^    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool) {$/;"	f
+increaseAllowance	src/Proxy/TokenScript.sol	/^    function increaseAllowance(address spender, uint256 addedValue) external returns (bool) {$/;"	f
+decreaseAllowance	src/Proxy/TokenScript.sol	/^    function decreaseAllowance(address spender, uint256 subtractedValue) external returns (bool) {$/;"	f
+BorrowerOperationsScript	src/Proxy/BorrowerOperationsScript.sol	/^contract BorrowerOperationsScript is CheckContract {$/;"	c
+openTrove	src/Proxy/BorrowerOperationsScript.sol	/^    function openTrove(uint256 _maxFee, uint256 _LUSDAmount, address _upperHint, address _lowerHint) external payable {$/;"	f
+addColl	src/Proxy/BorrowerOperationsScript.sol	/^    function addColl(address _upperHint, address _lowerHint) external payable {$/;"	f
+withdrawColl	src/Proxy/BorrowerOperationsScript.sol	/^    function withdrawColl(uint256 _amount, address _upperHint, address _lowerHint) external {$/;"	f
+withdrawLUSD	src/Proxy/BorrowerOperationsScript.sol	/^    function withdrawLUSD(uint256 _maxFee, uint256 _amount, address _upperHint, address _lowerHint) external {$/;"	f
+repayLUSD	src/Proxy/BorrowerOperationsScript.sol	/^    function repayLUSD(uint256 _amount, address _upperHint, address _lowerHint) external {$/;"	f
+closeTrove	src/Proxy/BorrowerOperationsScript.sol	/^    function closeTrove() external {$/;"	f
+adjustTrove	src/Proxy/BorrowerOperationsScript.sol	/^    function adjustTrove($/;"	f
+claimCollateral	src/Proxy/BorrowerOperationsScript.sol	/^    function claimCollateral() external {$/;"	f
+TroveManagerScript	src/Proxy/TroveManagerScript.sol	/^contract TroveManagerScript is CheckContract {$/;"	c
+redeemCollateral	src/Proxy/TroveManagerScript.sol	/^    function redeemCollateral($/;"	f
+StabilityPoolScript	src/Proxy/StabilityPoolScript.sol	/^contract StabilityPoolScript is CheckContract {$/;"	c
+provideToSP	src/Proxy/StabilityPoolScript.sol	/^    function provideToSP(uint256 _amount, address _frontEndTag) external {$/;"	f
+withdrawFromSP	src/Proxy/StabilityPoolScript.sol	/^    function withdrawFromSP(uint256 _amount) external {$/;"	f
+withdrawETHGainToTrove	src/Proxy/StabilityPoolScript.sol	/^    function withdrawETHGainToTrove(address _upperHint, address _lowerHint) external {$/;"	f
+BorrowerWrappersScript	src/Proxy/BorrowerWrappersScript.sol	/^contract BorrowerWrappersScript is BorrowerOperationsScript, ETHTransferScript, LQTYStakingScript {$/;"	c
+claimCollateralAndOpenTrove	src/Proxy/BorrowerWrappersScript.sol	/^    function claimCollateralAndOpenTrove(uint256 _maxFee, uint256 _LUSDAmount, address _upperHint, address _lowerHint)$/;"	f
+claimSPRewardsAndRecycle	src/Proxy/BorrowerWrappersScript.sol	/^    function claimSPRewardsAndRecycle(uint256 _maxFee, address _upperHint, address _lowerHint) external {$/;"	f
+claimStakingGainsAndRecycle	src/Proxy/BorrowerWrappersScript.sol	/^    function claimStakingGainsAndRecycle(uint256 _maxFee, address _upperHint, address _lowerHint) external {$/;"	f
+_getNetLUSDAmount	src/Proxy/BorrowerWrappersScript.sol	/^    function _getNetLUSDAmount(uint256 _collateral) internal returns (uint256) {$/;"	f
+_requireUserHasTrove	src/Proxy/BorrowerWrappersScript.sol	/^    function _requireUserHasTrove(address _depositor) internal view {$/;"	f
+occurs	src/StabilityPool.sol	/^ * An LQTY issuance event occurs at every deposit operation, and every liquidation.$/;"	e
+StabilityPool	src/StabilityPool.sol	/^contract StabilityPool is LiquityBase, Ownable, CheckContract, IStabilityPool {$/;"	c
+struct FrontEnd	src/StabilityPool.sol	/^    struct FrontEnd {$/;"	v
+struct Deposit	src/StabilityPool.sol	/^    struct Deposit {$/;"	v
+struct Snapshots	src/StabilityPool.sol	/^    struct Snapshots {$/;"	v
+StabilityPoolETHBalanceUpdated	src/StabilityPool.sol	/^    event StabilityPoolETHBalanceUpdated(uint256 _newBalance);$/;"	e
+StabilityPoolLUSDBalanceUpdated	src/StabilityPool.sol	/^    event StabilityPoolLUSDBalanceUpdated(uint256 _newBalance);$/;"	e
+BorrowerOperationsAddressChanged	src/StabilityPool.sol	/^    event BorrowerOperationsAddressChanged(address _newBorrowerOperationsAddress);$/;"	e
+TroveManagerAddressChanged	src/StabilityPool.sol	/^    event TroveManagerAddressChanged(address _newTroveManagerAddress);$/;"	e
+ActivePoolAddressChanged	src/StabilityPool.sol	/^    event ActivePoolAddressChanged(address _newActivePoolAddress);$/;"	e
+DefaultPoolAddressChanged	src/StabilityPool.sol	/^    event DefaultPoolAddressChanged(address _newDefaultPoolAddress);$/;"	e
+LUSDTokenAddressChanged	src/StabilityPool.sol	/^    event LUSDTokenAddressChanged(address _newLUSDTokenAddress);$/;"	e
+SortedTrovesAddressChanged	src/StabilityPool.sol	/^    event SortedTrovesAddressChanged(address _newSortedTrovesAddress);$/;"	e
+PriceFeedAddressChanged	src/StabilityPool.sol	/^    event PriceFeedAddressChanged(address _newPriceFeedAddress);$/;"	e
+CommunityIssuanceAddressChanged	src/StabilityPool.sol	/^    event CommunityIssuanceAddressChanged(address _newCommunityIssuanceAddress);$/;"	e
+P_Updated	src/StabilityPool.sol	/^    event P_Updated(uint256 _P);$/;"	e
+S_Updated	src/StabilityPool.sol	/^    event S_Updated(uint256 _S, uint128 _epoch, uint128 _scale);$/;"	e
+G_Updated	src/StabilityPool.sol	/^    event G_Updated(uint256 _G, uint128 _epoch, uint128 _scale);$/;"	e
+EpochUpdated	src/StabilityPool.sol	/^    event EpochUpdated(uint128 _currentEpoch);$/;"	e
+ScaleUpdated	src/StabilityPool.sol	/^    event ScaleUpdated(uint128 _currentScale);$/;"	e
+FrontEndRegistered	src/StabilityPool.sol	/^    event FrontEndRegistered(address indexed _frontEnd, uint256 _kickbackRate);$/;"	e
+FrontEndTagSet	src/StabilityPool.sol	/^    event FrontEndTagSet(address indexed _depositor, address indexed _frontEnd);$/;"	e
+DepositSnapshotUpdated	src/StabilityPool.sol	/^    event DepositSnapshotUpdated(address indexed _depositor, uint256 _P, uint256 _S, uint256 _G);$/;"	e
+FrontEndSnapshotUpdated	src/StabilityPool.sol	/^    event FrontEndSnapshotUpdated(address indexed _frontEnd, uint256 _P, uint256 _G);$/;"	e
+UserDepositChanged	src/StabilityPool.sol	/^    event UserDepositChanged(address indexed _depositor, uint256 _newDeposit);$/;"	e
+FrontEndStakeChanged	src/StabilityPool.sol	/^    event FrontEndStakeChanged(address indexed _frontEnd, uint256 _newFrontEndStake, address _depositor);$/;"	e
+ETHGainWithdrawn	src/StabilityPool.sol	/^    event ETHGainWithdrawn(address indexed _depositor, uint256 _ETH, uint256 _LUSDLoss);$/;"	e
+LQTYPaidToDepositor	src/StabilityPool.sol	/^    event LQTYPaidToDepositor(address indexed _depositor, uint256 _LQTY);$/;"	e
+LQTYPaidToFrontEnd	src/StabilityPool.sol	/^    event LQTYPaidToFrontEnd(address indexed _frontEnd, uint256 _LQTY);$/;"	e
+EtherSent	src/StabilityPool.sol	/^    event EtherSent(address _to, uint256 _amount);$/;"	e
+setAddresses	src/StabilityPool.sol	/^    function setAddresses($/;"	f
+getETH	src/StabilityPool.sol	/^    function getETH() external view override returns (uint256) {$/;"	f
+getTotalLUSDDeposits	src/StabilityPool.sol	/^    function getTotalLUSDDeposits() external view override returns (uint256) {$/;"	f
+provideToSP	src/StabilityPool.sol	/^    function provideToSP(uint256 _amount, address _frontEndTag) external override {$/;"	f
+log	src/StabilityPool.sol	/^        uint256 LUSDLoss = initialDeposit.sub(compoundedLUSDDeposit); \/\/ Needed only for event log$/;"	e
+log	src/StabilityPool.sol	/^        emit ETHGainWithdrawn(msg.sender, depositorETHGain, LUSDLoss); \/\/ LUSD Loss required for event log$/;"	e
+withdrawFromSP	src/StabilityPool.sol	/^    function withdrawFromSP(uint256 _amount) external override {$/;"	f
+log	src/StabilityPool.sol	/^        uint256 LUSDLoss = initialDeposit.sub(compoundedLUSDDeposit); \/\/ Needed only for event log$/;"	e
+log	src/StabilityPool.sol	/^        emit ETHGainWithdrawn(msg.sender, depositorETHGain, LUSDLoss); \/\/ LUSD Loss required for event log$/;"	e
+withdrawETHGainToTrove	src/StabilityPool.sol	/^    function withdrawETHGainToTrove(address _upperHint, address _lowerHint) external override {$/;"	f
+log	src/StabilityPool.sol	/^        uint256 LUSDLoss = initialDeposit.sub(compoundedLUSDDeposit); \/\/ Needed only for event log$/;"	e
+log	src/StabilityPool.sol	/^         This lets the event log make more sense (i.e. so it appears that first the ETH gain is withdrawn$/;"	e
+_triggerLQTYIssuance	src/StabilityPool.sol	/^    function _triggerLQTYIssuance(ICommunityIssuance _communityIssuance) internal {$/;"	f
+_updateG	src/StabilityPool.sol	/^    function _updateG(uint256 _LQTYIssuance) internal {$/;"	f
+_computeLQTYPerUnitStaked	src/StabilityPool.sol	/^    function _computeLQTYPerUnitStaked(uint256 _LQTYIssuance, uint256 _totalLUSDDeposits) internal returns (uint256) {$/;"	f
+was	src/StabilityPool.sol	/^        * function was called.  $/;"	f
+is	src/StabilityPool.sol	/^        * 4) Store this error for use in the next correction when this function is called.$/;"	f
+offset	src/StabilityPool.sol	/^    function offset(uint256 _debtToOffset, uint256 _collToAdd) external override {$/;"	f
+_computeRewardsPerUnitStaked	src/StabilityPool.sol	/^    function _computeRewardsPerUnitStaked(uint256 _collToAdd, uint256 _debtToOffset, uint256 _totalLUSDDeposits)$/;"	f
+was	src/StabilityPool.sol	/^        * function was called.  $/;"	f
+is	src/StabilityPool.sol	/^        * 4) Store these errors for use in the next correction when this function is called.$/;"	f
+_updateRewardSumAndProduct	src/StabilityPool.sol	/^    function _updateRewardSumAndProduct(uint256 _ETHGainPerUnitStaked, uint256 _LUSDLossPerUnitStaked) internal {$/;"	f
+_moveOffsetCollAndDebt	src/StabilityPool.sol	/^    function _moveOffsetCollAndDebt(uint256 _collToAdd, uint256 _debtToOffset) internal {$/;"	f
+_decreaseLUSD	src/StabilityPool.sol	/^    function _decreaseLUSD(uint256 _amount) internal {$/;"	f
+getDepositorETHGain	src/StabilityPool.sol	/^    function getDepositorETHGain(address _depositor) public view override returns (uint256) {$/;"	f
+_getETHGainFromSnapshots	src/StabilityPool.sol	/^    function _getETHGainFromSnapshots(uint256 initialDeposit, Snapshots memory snapshots)$/;"	f
+getDepositorLQTYGain	src/StabilityPool.sol	/^    function getDepositorLQTYGain(address _depositor) public view override returns (uint256) {$/;"	f
+getFrontEndLQTYGain	src/StabilityPool.sol	/^    function getFrontEndLQTYGain(address _frontEnd) public view override returns (uint256) {$/;"	f
+_getLQTYGainFromSnapshots	src/StabilityPool.sol	/^    function _getLQTYGainFromSnapshots(uint256 initialStake, Snapshots memory snapshots)$/;"	f
+getCompoundedLUSDDeposit	src/StabilityPool.sol	/^    function getCompoundedLUSDDeposit(address _depositor) public view override returns (uint256) {$/;"	f
+getCompoundedFrontEndStake	src/StabilityPool.sol	/^    function getCompoundedFrontEndStake(address _frontEnd) public view override returns (uint256) {$/;"	f
+_getCompoundedStakeFromSnapshots	src/StabilityPool.sol	/^    function _getCompoundedStakeFromSnapshots(uint256 initialStake, Snapshots memory snapshots)$/;"	f
+_sendLUSDtoStabilityPool	src/StabilityPool.sol	/^    function _sendLUSDtoStabilityPool(address _address, uint256 _amount) internal {$/;"	f
+_sendETHGainToDepositor	src/StabilityPool.sol	/^    function _sendETHGainToDepositor(uint256 _amount) internal {$/;"	f
+_sendLUSDToDepositor	src/StabilityPool.sol	/^    function _sendLUSDToDepositor(address _depositor, uint256 LUSDWithdrawal) internal {$/;"	f
+registerFrontEnd	src/StabilityPool.sol	/^    function registerFrontEnd(uint256 _kickbackRate) external override {$/;"	f
+_setFrontEndTag	src/StabilityPool.sol	/^    function _setFrontEndTag(address _depositor, address _frontEndTag) internal {$/;"	f
+_updateDepositAndSnapshots	src/StabilityPool.sol	/^    function _updateDepositAndSnapshots(address _depositor, uint256 _newValue) internal {$/;"	f
+_updateFrontEndStakeAndSnapshots	src/StabilityPool.sol	/^    function _updateFrontEndStakeAndSnapshots(address _frontEnd, uint256 _newValue) internal {$/;"	f
+_payOutLQTYGains	src/StabilityPool.sol	/^    function _payOutLQTYGains(ICommunityIssuance _communityIssuance, address _depositor, address _frontEnd) internal {$/;"	f
+_requireCallerIsActivePool	src/StabilityPool.sol	/^    function _requireCallerIsActivePool() internal view {$/;"	f
+_requireCallerIsTroveManager	src/StabilityPool.sol	/^    function _requireCallerIsTroveManager() internal view {$/;"	f
+_requireNoUnderCollateralizedTroves	src/StabilityPool.sol	/^    function _requireNoUnderCollateralizedTroves() internal {$/;"	f
+_requireUserHasDeposit	src/StabilityPool.sol	/^    function _requireUserHasDeposit(uint256 _initialDeposit) internal pure {$/;"	f
+_requireUserHasNoDeposit	src/StabilityPool.sol	/^    function _requireUserHasNoDeposit(address _address) internal view {$/;"	f
+_requireNonZeroAmount	src/StabilityPool.sol	/^    function _requireNonZeroAmount(uint256 _amount) internal pure {$/;"	f
+_requireUserHasTrove	src/StabilityPool.sol	/^    function _requireUserHasTrove(address _depositor) internal view {$/;"	f
+_requireUserHasETHGain	src/StabilityPool.sol	/^    function _requireUserHasETHGain(address _depositor) internal view {$/;"	f
+_requireFrontEndNotRegistered	src/StabilityPool.sol	/^    function _requireFrontEndNotRegistered(address _address) internal view {$/;"	f
+_requireFrontEndIsRegisteredOrZero	src/StabilityPool.sol	/^    function _requireFrontEndIsRegisteredOrZero(address _address) internal view {$/;"	f
+_requireValidKickbackRate	src/StabilityPool.sol	/^    function _requireValidKickbackRate(uint256 _kickbackRate) internal pure {$/;"	f
+TroveManager	src/TroveManager.sol	/^contract TroveManager is LiquityBase, Ownable, CheckContract, ITroveManager {$/;"	c
+enum Status	src/TroveManager.sol	/^    enum Status {$/;"	v
+struct Trove	src/TroveManager.sol	/^    struct Trove {$/;"	v
+struct RewardSnapshot	src/TroveManager.sol	/^    struct RewardSnapshot {$/;"	v
+struct LocalVariables_OuterLiquidationFunction	src/TroveManager.sol	/^    struct LocalVariables_OuterLiquidationFunction {$/;"	v
+struct LocalVariables_InnerSingleLiquidateFunction	src/TroveManager.sol	/^    struct LocalVariables_InnerSingleLiquidateFunction {$/;"	v
+struct LocalVariables_LiquidationSequence	src/TroveManager.sol	/^    struct LocalVariables_LiquidationSequence {$/;"	v
+struct LiquidationValues	src/TroveManager.sol	/^    struct LiquidationValues {$/;"	v
+struct LiquidationTotals	src/TroveManager.sol	/^    struct LiquidationTotals {$/;"	v
+struct ContractsCache	src/TroveManager.sol	/^    struct ContractsCache {$/;"	v
+struct RedemptionTotals	src/TroveManager.sol	/^    struct RedemptionTotals {$/;"	v
+struct SingleRedemptionValues	src/TroveManager.sol	/^    struct SingleRedemptionValues {$/;"	v
+BorrowerOperationsAddressChanged	src/TroveManager.sol	/^    event BorrowerOperationsAddressChanged(address _newBorrowerOperationsAddress);$/;"	e
+PriceFeedAddressChanged	src/TroveManager.sol	/^    event PriceFeedAddressChanged(address _newPriceFeedAddress);$/;"	e
+LUSDTokenAddressChanged	src/TroveManager.sol	/^    event LUSDTokenAddressChanged(address _newLUSDTokenAddress);$/;"	e
+ActivePoolAddressChanged	src/TroveManager.sol	/^    event ActivePoolAddressChanged(address _activePoolAddress);$/;"	e
+DefaultPoolAddressChanged	src/TroveManager.sol	/^    event DefaultPoolAddressChanged(address _defaultPoolAddress);$/;"	e
+StabilityPoolAddressChanged	src/TroveManager.sol	/^    event StabilityPoolAddressChanged(address _stabilityPoolAddress);$/;"	e
+GasPoolAddressChanged	src/TroveManager.sol	/^    event GasPoolAddressChanged(address _gasPoolAddress);$/;"	e
+CollSurplusPoolAddressChanged	src/TroveManager.sol	/^    event CollSurplusPoolAddressChanged(address _collSurplusPoolAddress);$/;"	e
+SortedTrovesAddressChanged	src/TroveManager.sol	/^    event SortedTrovesAddressChanged(address _sortedTrovesAddress);$/;"	e
+LQTYTokenAddressChanged	src/TroveManager.sol	/^    event LQTYTokenAddressChanged(address _lqtyTokenAddress);$/;"	e
+LQTYStakingAddressChanged	src/TroveManager.sol	/^    event LQTYStakingAddressChanged(address _lqtyStakingAddress);$/;"	e
+Liquidation	src/TroveManager.sol	/^    event Liquidation($/;"	e
+Redemption	src/TroveManager.sol	/^    event Redemption(uint256 _attemptedLUSDAmount, uint256 _actualLUSDAmount, uint256 _ETHSent, uint256 _ETHFee);$/;"	e
+TroveUpdated	src/TroveManager.sol	/^    event TroveUpdated($/;"	e
+TroveLiquidated	src/TroveManager.sol	/^    event TroveLiquidated(address indexed _borrower, uint256 _debt, uint256 _coll, TroveManagerOperation _operation);$/;"	e
+BaseRateUpdated	src/TroveManager.sol	/^    event BaseRateUpdated(uint256 _baseRate);$/;"	e
+LastFeeOpTimeUpdated	src/TroveManager.sol	/^    event LastFeeOpTimeUpdated(uint256 _lastFeeOpTime);$/;"	e
+TotalStakesUpdated	src/TroveManager.sol	/^    event TotalStakesUpdated(uint256 _newTotalStakes);$/;"	e
+SystemSnapshotsUpdated	src/TroveManager.sol	/^    event SystemSnapshotsUpdated(uint256 _totalStakesSnapshot, uint256 _totalCollateralSnapshot);$/;"	e
+LTermsUpdated	src/TroveManager.sol	/^    event LTermsUpdated(uint256 _L_ETH, uint256 _L_LUSDDebt);$/;"	e
+TroveSnapshotsUpdated	src/TroveManager.sol	/^    event TroveSnapshotsUpdated(uint256 _L_ETH, uint256 _L_LUSDDebt);$/;"	e
+TroveIndexUpdated	src/TroveManager.sol	/^    event TroveIndexUpdated(address _borrower, uint256 _newIndex);$/;"	e
+enum TroveManagerOperation	src/TroveManager.sol	/^    enum TroveManagerOperation {$/;"	v
+setAddresses	src/TroveManager.sol	/^    function setAddresses($/;"	f
+getTroveOwnersCount	src/TroveManager.sol	/^    function getTroveOwnersCount() external view override returns (uint256) {$/;"	f
+getTroveFromTroveOwnersArray	src/TroveManager.sol	/^    function getTroveFromTroveOwnersArray(uint256 _index) external view override returns (address) {$/;"	f
+liquidate	src/TroveManager.sol	/^    function liquidate(address _borrower) external override {$/;"	f
+_liquidateNormalMode	src/TroveManager.sol	/^    function _liquidateNormalMode($/;"	f
+_liquidateRecoveryMode	src/TroveManager.sol	/^    function _liquidateRecoveryMode($/;"	f
+_getOffsetAndRedistributionVals	src/TroveManager.sol	/^    function _getOffsetAndRedistributionVals(uint256 _debt, uint256 _coll, uint256 _LUSDInStabPool)$/;"	f
+_getCappedOffsetVals	src/TroveManager.sol	/^    function _getCappedOffsetVals(uint256 _entireTroveDebt, uint256 _entireTroveColl, uint256 _price)$/;"	f
+liquidateTroves	src/TroveManager.sol	/^    function liquidateTroves(uint256 _n) external override {$/;"	f
+is	src/TroveManager.sol	/^    * This function is used when the liquidateTroves sequence starts during Recovery Mode. However, it$/;"	f
+_getTotalsFromLiquidateTrovesSequence_RecoveryMode	src/TroveManager.sol	/^    function _getTotalsFromLiquidateTrovesSequence_RecoveryMode($/;"	f
+_getTotalsFromLiquidateTrovesSequence_NormalMode	src/TroveManager.sol	/^    function _getTotalsFromLiquidateTrovesSequence_NormalMode($/;"	f
+batchLiquidateTroves	src/TroveManager.sol	/^    function batchLiquidateTroves(address[] memory _troveArray) public override {$/;"	f
+is	src/TroveManager.sol	/^    * This function is used when the batch liquidation sequence starts during Recovery Mode. However, it$/;"	f
+_getTotalFromBatchLiquidate_RecoveryMode	src/TroveManager.sol	/^    function _getTotalFromBatchLiquidate_RecoveryMode($/;"	f
+_getTotalsFromBatchLiquidate_NormalMode	src/TroveManager.sol	/^    function _getTotalsFromBatchLiquidate_NormalMode($/;"	f
+_addLiquidationValuesToTotals	src/TroveManager.sol	/^    function _addLiquidationValuesToTotals($/;"	f
+_sendGasCompensation	src/TroveManager.sol	/^    function _sendGasCompensation(IActivePool _activePool, address _liquidator, uint256 _LUSD, uint256 _ETH) internal {$/;"	f
+_movePendingTroveRewardsToActivePool	src/TroveManager.sol	/^    function _movePendingTroveRewardsToActivePool($/;"	f
+_redeemCollateralFromTrove	src/TroveManager.sol	/^    function _redeemCollateralFromTrove($/;"	f
+_redeemCloseTrove	src/TroveManager.sol	/^    function _redeemCloseTrove(ContractsCache memory _contractsCache, address _borrower, uint256 _LUSD, uint256 _ETH)$/;"	f
+_isValidFirstRedemptionHint	src/TroveManager.sol	/^    function _isValidFirstRedemptionHint(ISortedTroves _sortedTroves, address _firstRedemptionHint, uint256 _price)$/;"	f
+can	src/TroveManager.sol	/^    * Note that if _amount is very large, this function can run out of gas, specially if traversed troves are small. This can be easily avoided by$/;"	f
+multiple	src/TroveManager.sol	/^    * splitting the total _amount in appropriate chunks and calling the function multiple times.$/;"	f
+redeemCollateral	src/TroveManager.sol	/^    function redeemCollateral($/;"	f
+getNominalICR	src/TroveManager.sol	/^    function getNominalICR(address _borrower) public view override returns (uint256) {$/;"	f
+getCurrentICR	src/TroveManager.sol	/^    function getCurrentICR(address _borrower, uint256 _price) public view override returns (uint256) {$/;"	f
+_getCurrentTroveAmounts	src/TroveManager.sol	/^    function _getCurrentTroveAmounts(address _borrower) internal view returns (uint256, uint256) {$/;"	f
+applyPendingRewards	src/TroveManager.sol	/^    function applyPendingRewards(address _borrower) external override {$/;"	f
+_applyPendingRewards	src/TroveManager.sol	/^    function _applyPendingRewards(IActivePool _activePool, IDefaultPool _defaultPool, address _borrower) internal {$/;"	f
+updateTroveRewardSnapshots	src/TroveManager.sol	/^    function updateTroveRewardSnapshots(address _borrower) external override {$/;"	f
+_updateTroveRewardSnapshots	src/TroveManager.sol	/^    function _updateTroveRewardSnapshots(address _borrower) internal {$/;"	f
+getPendingETHReward	src/TroveManager.sol	/^    function getPendingETHReward(address _borrower) public view override returns (uint256) {$/;"	f
+getPendingLUSDDebtReward	src/TroveManager.sol	/^    function getPendingLUSDDebtReward(address _borrower) public view override returns (uint256) {$/;"	f
+hasPendingRewards	src/TroveManager.sol	/^    function hasPendingRewards(address _borrower) public view override returns (bool) {$/;"	f
+getEntireDebtAndColl	src/TroveManager.sol	/^    function getEntireDebtAndColl(address _borrower)$/;"	f
+removeStake	src/TroveManager.sol	/^    function removeStake(address _borrower) external override {$/;"	f
+_removeStake	src/TroveManager.sol	/^    function _removeStake(address _borrower) internal {$/;"	f
+updateStakeAndTotalStakes	src/TroveManager.sol	/^    function updateStakeAndTotalStakes(address _borrower) external override returns (uint256) {$/;"	f
+_updateStakeAndTotalStakes	src/TroveManager.sol	/^    function _updateStakeAndTotalStakes(address _borrower) internal returns (uint256) {$/;"	f
+_computeNewStake	src/TroveManager.sol	/^    function _computeNewStake(uint256 _coll) internal view returns (uint256) {$/;"	f
+_redistributeDebtAndColl	src/TroveManager.sol	/^    function _redistributeDebtAndColl(IActivePool _activePool, IDefaultPool _defaultPool, uint256 _debt, uint256 _coll)$/;"	f
+was	src/TroveManager.sol	/^        * function was called.$/;"	f
+is	src/TroveManager.sol	/^        * 4) Store these errors for use in the next correction when this function is called.$/;"	f
+closeTrove	src/TroveManager.sol	/^    function closeTrove(address _borrower) external override {$/;"	f
+_closeTrove	src/TroveManager.sol	/^    function _closeTrove(address _borrower, Status closedStatus) internal {$/;"	f
+_updateSystemSnapshots_excludeCollRemainder	src/TroveManager.sol	/^    function _updateSystemSnapshots_excludeCollRemainder(IActivePool _activePool, uint256 _collRemainder) internal {$/;"	f
+addTroveOwnerToArray	src/TroveManager.sol	/^    function addTroveOwnerToArray(address _borrower) external override returns (uint256 index) {$/;"	f
+_addTroveOwnerToArray	src/TroveManager.sol	/^    function _addTroveOwnerToArray(address _borrower) internal returns (uint128 index) {$/;"	f
+_removeTroveOwner	src/TroveManager.sol	/^    function _removeTroveOwner(address _borrower, uint256 TroveOwnersArrayLength) internal {$/;"	f
+getTCR	src/TroveManager.sol	/^    function getTCR(uint256 _price) external view override returns (uint256) {$/;"	f
+checkRecoveryMode	src/TroveManager.sol	/^    function checkRecoveryMode(uint256 _price) external view override returns (bool) {$/;"	f
+_checkPotentialRecoveryMode	src/TroveManager.sol	/^    function _checkPotentialRecoveryMode(uint256 _entireSystemColl, uint256 _entireSystemDebt, uint256 _price)$/;"	f
+has	src/TroveManager.sol	/^    * This function has two impacts on the baseRate state variable:$/;"	f
+_updateBaseRateFromRedemption	src/TroveManager.sol	/^    function _updateBaseRateFromRedemption(uint256 _ETHDrawn, uint256 _price, uint256 _totalLUSDSupply)$/;"	f
+getRedemptionRate	src/TroveManager.sol	/^    function getRedemptionRate() public view override returns (uint256) {$/;"	f
+getRedemptionRateWithDecay	src/TroveManager.sol	/^    function getRedemptionRateWithDecay() public view override returns (uint256) {$/;"	f
+_calcRedemptionRate	src/TroveManager.sol	/^    function _calcRedemptionRate(uint256 _baseRate) internal pure returns (uint256) {$/;"	f
+_getRedemptionFee	src/TroveManager.sol	/^    function _getRedemptionFee(uint256 _ETHDrawn) internal view returns (uint256) {$/;"	f
+getRedemptionFeeWithDecay	src/TroveManager.sol	/^    function getRedemptionFeeWithDecay(uint256 _ETHDrawn) external view override returns (uint256) {$/;"	f
+_calcRedemptionFee	src/TroveManager.sol	/^    function _calcRedemptionFee(uint256 _redemptionRate, uint256 _ETHDrawn) internal pure returns (uint256) {$/;"	f
+getBorrowingRate	src/TroveManager.sol	/^    function getBorrowingRate() public view override returns (uint256) {$/;"	f
+getBorrowingRateWithDecay	src/TroveManager.sol	/^    function getBorrowingRateWithDecay() public view override returns (uint256) {$/;"	f
+_calcBorrowingRate	src/TroveManager.sol	/^    function _calcBorrowingRate(uint256 _baseRate) internal pure returns (uint256) {$/;"	f
+getBorrowingFee	src/TroveManager.sol	/^    function getBorrowingFee(uint256 _LUSDDebt) external view override returns (uint256) {$/;"	f
+getBorrowingFeeWithDecay	src/TroveManager.sol	/^    function getBorrowingFeeWithDecay(uint256 _LUSDDebt) external view override returns (uint256) {$/;"	f
+_calcBorrowingFee	src/TroveManager.sol	/^    function _calcBorrowingFee(uint256 _borrowingRate, uint256 _LUSDDebt) internal pure returns (uint256) {$/;"	f
+decayBaseRateFromBorrowing	src/TroveManager.sol	/^    function decayBaseRateFromBorrowing() external override {$/;"	f
+_updateLastFeeOpTime	src/TroveManager.sol	/^    function _updateLastFeeOpTime() internal {$/;"	f
+_calcDecayedBaseRate	src/TroveManager.sol	/^    function _calcDecayedBaseRate() internal view returns (uint256) {$/;"	f
+_minutesPassedSinceLastFeeOp	src/TroveManager.sol	/^    function _minutesPassedSinceLastFeeOp() internal view returns (uint256) {$/;"	f
+_requireCallerIsBorrowerOperations	src/TroveManager.sol	/^    function _requireCallerIsBorrowerOperations() internal view {$/;"	f
+_requireTroveIsActive	src/TroveManager.sol	/^    function _requireTroveIsActive(address _borrower) internal view {$/;"	f
+_requireLUSDBalanceCoversRedemption	src/TroveManager.sol	/^    function _requireLUSDBalanceCoversRedemption(ILUSDToken _lusdToken, address _redeemer, uint256 _amount)$/;"	f
+_requireMoreThanOneTroveInSystem	src/TroveManager.sol	/^    function _requireMoreThanOneTroveInSystem(uint256 TroveOwnersArrayLength) internal view {$/;"	f
+_requireAmountGreaterThanZero	src/TroveManager.sol	/^    function _requireAmountGreaterThanZero(uint256 _amount) internal pure {$/;"	f
+_requireTCRoverMCR	src/TroveManager.sol	/^    function _requireTCRoverMCR(uint256 _price) internal view {$/;"	f
+_requireAfterBootstrapPeriod	src/TroveManager.sol	/^    function _requireAfterBootstrapPeriod() internal view {$/;"	f
+_requireValidMaxFeePercentage	src/TroveManager.sol	/^    function _requireValidMaxFeePercentage(uint256 _maxFeePercentage) internal pure {$/;"	f
+getTroveStatus	src/TroveManager.sol	/^    function getTroveStatus(address _borrower) external view override returns (uint256) {$/;"	f
+getTroveStake	src/TroveManager.sol	/^    function getTroveStake(address _borrower) external view override returns (uint256) {$/;"	f
+getTroveDebt	src/TroveManager.sol	/^    function getTroveDebt(address _borrower) external view override returns (uint256) {$/;"	f
+getTroveColl	src/TroveManager.sol	/^    function getTroveColl(address _borrower) external view override returns (uint256) {$/;"	f
+setTroveStatus	src/TroveManager.sol	/^    function setTroveStatus(address _borrower, uint256 _num) external override {$/;"	f
+increaseTroveColl	src/TroveManager.sol	/^    function increaseTroveColl(address _borrower, uint256 _collIncrease) external override returns (uint256) {$/;"	f
+decreaseTroveColl	src/TroveManager.sol	/^    function decreaseTroveColl(address _borrower, uint256 _collDecrease) external override returns (uint256) {$/;"	f
+increaseTroveDebt	src/TroveManager.sol	/^    function increaseTroveDebt(address _borrower, uint256 _debtIncrease) external override returns (uint256) {$/;"	f
+decreaseTroveDebt	src/TroveManager.sol	/^    function decreaseTroveDebt(address _borrower, uint256 _debtDecrease) external override returns (uint256) {$/;"	f
+latestAnswer	src/Integrations/LUSDUsdToLUSDEth.sol	/^    function latestAnswer() external view returns (int256);$/;"	f
+LUSDUsdToLUSDEth	src/Integrations/LUSDUsdToLUSDEth.sol	/^contract LUSDUsdToLUSDEth is IPriceFeed {$/;"	c
+latestAnswer	src/Integrations/LUSDUsdToLUSDEth.sol	/^    function latestAnswer() external view override returns (int256) {$/;"	f
+Migrations	src/Migrations.sol	/^contract Migrations {$/;"	c
+setCompleted	src/Migrations.sol	/^    function setCompleted(uint256 completed) public restricted {$/;"	f
+upgrade	src/Migrations.sol	/^    function upgrade(address new_address) public restricted {$/;"	f
+ActivePool	src/ActivePool.sol	/^contract ActivePool is Ownable, CheckContract, IActivePool {$/;"	c
+BorrowerOperationsAddressChanged	src/ActivePool.sol	/^    event BorrowerOperationsAddressChanged(address _newBorrowerOperationsAddress);$/;"	e
+TroveManagerAddressChanged	src/ActivePool.sol	/^    event TroveManagerAddressChanged(address _newTroveManagerAddress);$/;"	e
+ActivePoolLUSDDebtUpdated	src/ActivePool.sol	/^    event ActivePoolLUSDDebtUpdated(uint256 _LUSDDebt);$/;"	e
+ActivePoolETHBalanceUpdated	src/ActivePool.sol	/^    event ActivePoolETHBalanceUpdated(uint256 _ETH);$/;"	e
+setAddresses	src/ActivePool.sol	/^    function setAddresses($/;"	f
+getETH	src/ActivePool.sol	/^    function getETH() external view override returns (uint256) {$/;"	f
+getLUSDDebt	src/ActivePool.sol	/^    function getLUSDDebt() external view override returns (uint256) {$/;"	f
+sendETH	src/ActivePool.sol	/^    function sendETH(address _account, uint256 _amount) external override {$/;"	f
+increaseLUSDDebt	src/ActivePool.sol	/^    function increaseLUSDDebt(uint256 _amount) external override {$/;"	f
+decreaseLUSDDebt	src/ActivePool.sol	/^    function decreaseLUSDDebt(uint256 _amount) external override {$/;"	f
+_requireCallerIsBorrowerOperationsOrDefaultPool	src/ActivePool.sol	/^    function _requireCallerIsBorrowerOperationsOrDefaultPool() internal view {$/;"	f
+_requireCallerIsBOorTroveMorSP	src/ActivePool.sol	/^    function _requireCallerIsBOorTroveMorSP() internal view {$/;"	f
+_requireCallerIsBOorTroveM	src/ActivePool.sol	/^    function _requireCallerIsBOorTroveM() internal view {$/;"	f
+LUSDToken	src/LUSDToken.sol	/^contract LUSDToken is CheckContract, ILUSDToken {$/;"	c
+TroveManagerAddressChanged	src/LUSDToken.sol	/^    event TroveManagerAddressChanged(address _troveManagerAddress);$/;"	e
+StabilityPoolAddressChanged	src/LUSDToken.sol	/^    event StabilityPoolAddressChanged(address _newStabilityPoolAddress);$/;"	e
+BorrowerOperationsAddressChanged	src/LUSDToken.sol	/^    event BorrowerOperationsAddressChanged(address _newBorrowerOperationsAddress);$/;"	e
+mint	src/LUSDToken.sol	/^    function mint(address _account, uint256 _amount) external override {$/;"	f
+burn	src/LUSDToken.sol	/^    function burn(address _account, uint256 _amount) external override {$/;"	f
+sendToPool	src/LUSDToken.sol	/^    function sendToPool(address _sender, address _poolAddress, uint256 _amount) external override {$/;"	f
+returnFromPool	src/LUSDToken.sol	/^    function returnFromPool(address _poolAddress, address _receiver, uint256 _amount) external override {$/;"	f
+totalSupply	src/LUSDToken.sol	/^    function totalSupply() external view override returns (uint256) {$/;"	f
+balanceOf	src/LUSDToken.sol	/^    function balanceOf(address account) external view override returns (uint256) {$/;"	f
+transfer	src/LUSDToken.sol	/^    function transfer(address recipient, uint256 amount) external override returns (bool) {$/;"	f
+allowance	src/LUSDToken.sol	/^    function allowance(address owner, address spender) external view override returns (uint256) {$/;"	f
+approve	src/LUSDToken.sol	/^    function approve(address spender, uint256 amount) external override returns (bool) {$/;"	f
+transferFrom	src/LUSDToken.sol	/^    function transferFrom(address sender, address recipient, uint256 amount) external override returns (bool) {$/;"	f
+increaseAllowance	src/LUSDToken.sol	/^    function increaseAllowance(address spender, uint256 addedValue) external override returns (bool) {$/;"	f
+decreaseAllowance	src/LUSDToken.sol	/^    function decreaseAllowance(address spender, uint256 subtractedValue) external override returns (bool) {$/;"	f
+domainSeparator	src/LUSDToken.sol	/^    function domainSeparator() public view override returns (bytes32) {$/;"	f
+permit	src/LUSDToken.sol	/^    function permit(address owner, address spender, uint256 amount, uint256 deadline, uint8 v, bytes32 r, bytes32 s)$/;"	f
+nonces	src/LUSDToken.sol	/^    function nonces(address owner) external view override returns (uint256) {$/;"	f
+_chainID	src/LUSDToken.sol	/^    function _chainID() private pure returns (uint256 chainID) {$/;"	f
+_buildDomainSeparator	src/LUSDToken.sol	/^    function _buildDomainSeparator(bytes32 typeHash, bytes32 name, bytes32 version) private view returns (bytes32) {$/;"	f
+_transfer	src/LUSDToken.sol	/^    function _transfer(address sender, address recipient, uint256 amount) internal {$/;"	f
+_mint	src/LUSDToken.sol	/^    function _mint(address account, uint256 amount) internal {$/;"	f
+_burn	src/LUSDToken.sol	/^    function _burn(address account, uint256 amount) internal {$/;"	f
+_approve	src/LUSDToken.sol	/^    function _approve(address owner, address spender, uint256 amount) internal {$/;"	f
+_requireValidRecipient	src/LUSDToken.sol	/^    function _requireValidRecipient(address _recipient) internal view {$/;"	f
+_requireCallerIsBorrowerOperations	src/LUSDToken.sol	/^    function _requireCallerIsBorrowerOperations() internal view {$/;"	f
+_requireCallerIsBOorTroveMorSP	src/LUSDToken.sol	/^    function _requireCallerIsBOorTroveMorSP() internal view {$/;"	f
+_requireCallerIsStabilityPool	src/LUSDToken.sol	/^    function _requireCallerIsStabilityPool() internal view {$/;"	f
+_requireCallerIsTroveMorSP	src/LUSDToken.sol	/^    function _requireCallerIsTroveMorSP() internal view {$/;"	f
+name	src/LUSDToken.sol	/^    function name() external view override returns (string memory) {$/;"	f
+symbol	src/LUSDToken.sol	/^    function symbol() external view override returns (string memory) {$/;"	f
+decimals	src/LUSDToken.sol	/^    function decimals() external view override returns (uint8) {$/;"	f
+version	src/LUSDToken.sol	/^    function version() external view override returns (string memory) {$/;"	f
+permitTypeHash	src/LUSDToken.sol	/^    function permitTypeHash() external view override returns (bytes32) {$/;"	f
+CheckContract	src/Dependencies/CheckContract.sol	/^contract CheckContract {$/;"	c
+checkContract	src/Dependencies/CheckContract.sol	/^    function checkContract(address _account) internal view {$/;"	f
+arguments	src/Dependencies/IERC2612.sol	/^     * over the EIP712-formatted function arguments.$/;"	f
+permit	src/Dependencies/IERC2612.sol	/^    function permit(address owner, address spender, uint256 amount, uint256 deadline, uint8 v, bytes32 r, bytes32 s)$/;"	f
+nonces	src/Dependencies/IERC2612.sol	/^    function nonces(address owner) external view returns (uint256);$/;"	f
+version	src/Dependencies/IERC2612.sol	/^    function version() external view returns (string memory);$/;"	f
+permitTypeHash	src/Dependencies/IERC2612.sol	/^    function permitTypeHash() external view returns (bytes32);$/;"	f
+domainSeparator	src/Dependencies/IERC2612.sol	/^    function domainSeparator() external view returns (bytes32);$/;"	f
+that	src/Dependencies/TellorCaller.sol	/^* This contract has a single external function that calls Tellor: getTellorCurrentValue(). $/;"	f
+is	src/Dependencies/TellorCaller.sol	/^* The function is called by the Liquity contract PriceFeed.sol. If any of its inner calls to Tellor revert, $/;"	f
+will	src/Dependencies/TellorCaller.sol	/^* this function will revert, and PriceFeed will catch the failure and handle it accordingly.$/;"	f
+comes	src/Dependencies/TellorCaller.sol	/^* The function comes from Tellor's own wrapper contract, 'UsingTellor.sol':$/;"	f
+TellorCaller	src/Dependencies/TellorCaller.sol	/^contract TellorCaller is ITellorCaller {$/;"	c
+getTellorCurrentValue	src/Dependencies/TellorCaller.sol	/^    function getTellorCurrentValue(uint256 _requestId)$/;"	f
+LiquityBase	src/Dependencies/LiquityBase.sol	/^contract LiquityBase is BaseMath, ILiquityBase {$/;"	c
+_getCompositeDebt	src/Dependencies/LiquityBase.sol	/^    function _getCompositeDebt(uint256 _debt) internal pure returns (uint256) {$/;"	f
+_getNetDebt	src/Dependencies/LiquityBase.sol	/^    function _getNetDebt(uint256 _debt) internal pure returns (uint256) {$/;"	f
+_getCollGasCompensation	src/Dependencies/LiquityBase.sol	/^    function _getCollGasCompensation(uint256 _entireColl) internal pure returns (uint256) {$/;"	f
+getEntireSystemColl	src/Dependencies/LiquityBase.sol	/^    function getEntireSystemColl() public view returns (uint256 entireSystemColl) {$/;"	f
+getEntireSystemDebt	src/Dependencies/LiquityBase.sol	/^    function getEntireSystemDebt() public view returns (uint256 entireSystemDebt) {$/;"	f
+_getTCR	src/Dependencies/LiquityBase.sol	/^    function _getTCR(uint256 _price) internal view returns (uint256 TCR) {$/;"	f
+_checkRecoveryMode	src/Dependencies/LiquityBase.sol	/^    function _checkRecoveryMode(uint256 _price) internal view returns (bool) {$/;"	f
+_requireUserAcceptsFee	src/Dependencies/LiquityBase.sol	/^    function _requireUserAcceptsFee(uint256 _fee, uint256 _amount, uint256 _maxFeePercentage) internal pure {$/;"	f
+totalSupply	src/Dependencies/IERC20.sol	/^    function totalSupply() external view returns (uint256);$/;"	f
+balanceOf	src/Dependencies/IERC20.sol	/^    function balanceOf(address account) external view returns (uint256);$/;"	f
+transfer	src/Dependencies/IERC20.sol	/^    function transfer(address recipient, uint256 amount) external returns (bool);$/;"	f
+allowance	src/Dependencies/IERC20.sol	/^    function allowance(address owner, address spender) external view returns (uint256);$/;"	f
+increaseAllowance	src/Dependencies/IERC20.sol	/^    function increaseAllowance(address spender, uint256 addedValue) external returns (bool);$/;"	f
+decreaseAllowance	src/Dependencies/IERC20.sol	/^    function decreaseAllowance(address spender, uint256 subtractedValue) external returns (bool);$/;"	f
+approve	src/Dependencies/IERC20.sol	/^    function approve(address spender, uint256 amount) external returns (bool);$/;"	f
+transferFrom	src/Dependencies/IERC20.sol	/^    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);$/;"	f
+name	src/Dependencies/IERC20.sol	/^    function name() external view returns (string memory);$/;"	f
+symbol	src/Dependencies/IERC20.sol	/^    function symbol() external view returns (string memory);$/;"	f
+decimals	src/Dependencies/IERC20.sol	/^    function decimals() external view returns (uint8);$/;"	f
+Transfer	src/Dependencies/IERC20.sol	/^    event Transfer(address indexed from, address indexed to, uint256 value);$/;"	e
+Approval	src/Dependencies/IERC20.sol	/^    event Approval(address indexed owner, address indexed spender, uint256 value);$/;"	e
+add	src/Dependencies/LiquitySafeMath128.sol	/^    function add(uint128 a, uint128 b) internal pure returns (uint128) {$/;"	f
+sub	src/Dependencies/LiquitySafeMath128.sol	/^    function sub(uint128 a, uint128 b) internal pure returns (uint128) {$/;"	f
+beginDispute	src/Dependencies/ITellor.sol	/^    function beginDispute(uint256 _requestId, uint256 _timestamp, uint256 _minerIndex) external;$/;"	f
+vote	src/Dependencies/ITellor.sol	/^    function vote(uint256 _disputeId, bool _supportsDispute) external;$/;"	f
+tallyVotes	src/Dependencies/ITellor.sol	/^    function tallyVotes(uint256 _disputeId) external;$/;"	f
+proposeFork	src/Dependencies/ITellor.sol	/^    function proposeFork(address _propNewTellorAddress) external;$/;"	f
+addTip	src/Dependencies/ITellor.sol	/^    function addTip(uint256 _requestId, uint256 _tip) external;$/;"	f
+submitMiningSolution	src/Dependencies/ITellor.sol	/^    function submitMiningSolution(string calldata _nonce, uint256 _requestId, uint256 _value) external;$/;"	f
+submitMiningSolution	src/Dependencies/ITellor.sol	/^    function submitMiningSolution(string calldata _nonce, uint256[5] calldata _requestId, uint256[5] calldata _value)$/;"	f
+proposeOwnership	src/Dependencies/ITellor.sol	/^    function proposeOwnership(address payable _pendingOwner) external;$/;"	f
+claimOwnership	src/Dependencies/ITellor.sol	/^    function claimOwnership() external;$/;"	f
+allows	src/Dependencies/ITellor.sol	/^     * @dev This function allows miners to deposit their stake.$/;"	f
+depositStake	src/Dependencies/ITellor.sol	/^    function depositStake() external;$/;"	f
+allows	src/Dependencies/ITellor.sol	/^     * @dev This function allows stakers to request to withdraw their stake (no longer stake)$/;"	f
+requestStakingWithdraw	src/Dependencies/ITellor.sol	/^    function requestStakingWithdraw() external;$/;"	f
+allows	src/Dependencies/ITellor.sol	/^     * @dev This function allows users to withdraw their stake after a 7 day waiting period from request$/;"	f
+withdrawStake	src/Dependencies/ITellor.sol	/^    function withdrawStake() external;$/;"	f
+approves	src/Dependencies/ITellor.sol	/^     * @dev This function approves a _spender an _amount of tokens to use$/;"	f
+approve	src/Dependencies/ITellor.sol	/^    function approve(address _spender, uint256 _amount) external returns (bool);$/;"	f
+transfer	src/Dependencies/ITellor.sol	/^    function transfer(address _to, uint256 _amount) external returns (bool);$/;"	f
+transferFrom	src/Dependencies/ITellor.sol	/^    function transferFrom(address _from, address _to, uint256 _amount) external returns (bool);$/;"	f
+name	src/Dependencies/ITellor.sol	/^    function name() external pure returns (string memory);$/;"	f
+symbol	src/Dependencies/ITellor.sol	/^    function symbol() external pure returns (string memory);$/;"	f
+decimals	src/Dependencies/ITellor.sol	/^    function decimals() external pure returns (uint8);$/;"	f
+getNewCurrentVariables	src/Dependencies/ITellor.sol	/^    function getNewCurrentVariables()$/;"	f
+getTopRequestIDs	src/Dependencies/ITellor.sol	/^    function getTopRequestIDs() external view returns (uint256[5] memory _requestIds);$/;"	f
+getNewVariablesOnDeck	src/Dependencies/ITellor.sol	/^    function getNewVariablesOnDeck()$/;"	f
+updateTellor	src/Dependencies/ITellor.sol	/^    function updateTellor(uint256 _disputeId) external;$/;"	f
+unlockDisputeFee	src/Dependencies/ITellor.sol	/^    function unlockDisputeFee(uint256 _disputeId) external;$/;"	f
+allowance	src/Dependencies/ITellor.sol	/^    function allowance(address _user, address _spender) external view returns (uint256);$/;"	f
+returns	src/Dependencies/ITellor.sol	/^     * @dev This function returns whether or not a given user is allowed to trade a given amount$/;"	f
+allowedToTrade	src/Dependencies/ITellor.sol	/^    function allowedToTrade(address _user, uint256 _amount) external view returns (bool);$/;"	f
+balanceOf	src/Dependencies/ITellor.sol	/^    function balanceOf(address _user) external view returns (uint256);$/;"	f
+balanceOfAt	src/Dependencies/ITellor.sol	/^    function balanceOfAt(address _user, uint256 _blockNumber) external view returns (uint256);$/;"	f
+tells	src/Dependencies/ITellor.sol	/^     * @dev This function tells you if a given challenge has been completed by a given miner$/;"	f
+didMine	src/Dependencies/ITellor.sol	/^    function didMine(bytes32 _challenge, address _miner) external view returns (bool);$/;"	f
+didVote	src/Dependencies/ITellor.sol	/^    function didVote(uint256 _disputeId, address _address) external view returns (bool);$/;"	f
+getAddressVars	src/Dependencies/ITellor.sol	/^    function getAddressVars(bytes32 _data) external view returns (address);$/;"	f
+getAllDisputeVars	src/Dependencies/ITellor.sol	/^    function getAllDisputeVars(uint256 _disputeId)$/;"	f
+for	src/Dependencies/ITellor.sol	/^     * @dev Getter function for variables for the requestId being currently mined(currentRequestId)$/;"	f
+getCurrentVariables	src/Dependencies/ITellor.sol	/^    function getCurrentVariables() external view returns (bytes32, uint256, uint256, string memory, uint256, uint256);$/;"	f
+getDisputeIdByDisputeHash	src/Dependencies/ITellor.sol	/^    function getDisputeIdByDisputeHash(bytes32 _hash) external view returns (uint256);$/;"	f
+getDisputeUintVars	src/Dependencies/ITellor.sol	/^    function getDisputeUintVars(uint256 _disputeId, bytes32 _data) external view returns (uint256);$/;"	f
+getLastNewValue	src/Dependencies/ITellor.sol	/^    function getLastNewValue() external view returns (uint256, bool);$/;"	f
+getLastNewValueById	src/Dependencies/ITellor.sol	/^    function getLastNewValueById(uint256 _requestId) external view returns (uint256, bool);$/;"	f
+getMinedBlockNum	src/Dependencies/ITellor.sol	/^    function getMinedBlockNum(uint256 _requestId, uint256 _timestamp) external view returns (uint256);$/;"	f
+getMinersByRequestIdAndTimestamp	src/Dependencies/ITellor.sol	/^    function getMinersByRequestIdAndTimestamp(uint256 _requestId, uint256 _timestamp)$/;"	f
+getNewValueCountbyRequestId	src/Dependencies/ITellor.sol	/^    function getNewValueCountbyRequestId(uint256 _requestId) external view returns (uint256);$/;"	f
+for	src/Dependencies/ITellor.sol	/^     * @dev Getter function for the specified requestQ index$/;"	f
+getRequestIdByRequestQIndex	src/Dependencies/ITellor.sol	/^    function getRequestIdByRequestQIndex(uint256 _index) external view returns (uint256);$/;"	f
+for	src/Dependencies/ITellor.sol	/^     * @dev Getter function for requestId based on timestamp$/;"	f
+getRequestIdByTimestamp	src/Dependencies/ITellor.sol	/^    function getRequestIdByTimestamp(uint256 _timestamp) external view returns (uint256);$/;"	f
+for	src/Dependencies/ITellor.sol	/^     * @dev Getter function for requestId based on the queryHash$/;"	f
+getRequestIdByQueryHash	src/Dependencies/ITellor.sol	/^    function getRequestIdByQueryHash(bytes32 _request) external view returns (uint256);$/;"	f
+for	src/Dependencies/ITellor.sol	/^     * @dev Getter function for the requestQ array$/;"	f
+getRequestQ	src/Dependencies/ITellor.sol	/^    function getRequestQ() external view returns (uint256[51] memory);$/;"	f
+getRequestUintVars	src/Dependencies/ITellor.sol	/^    function getRequestUintVars(uint256 _requestId, bytes32 _data) external view returns (uint256);$/;"	f
+getRequestVars	src/Dependencies/ITellor.sol	/^    function getRequestVars(uint256 _requestId)$/;"	f
+allows	src/Dependencies/ITellor.sol	/^     * @dev This function allows users to retireve all information about a staker$/;"	f
+getStakerInfo	src/Dependencies/ITellor.sol	/^    function getStakerInfo(address _staker) external view returns (uint256, uint256);$/;"	f
+getSubmissionsByTimestamp	src/Dependencies/ITellor.sol	/^    function getSubmissionsByTimestamp(uint256 _requestId, uint256 _timestamp)$/;"	f
+getTimestampbyRequestIDandIndex	src/Dependencies/ITellor.sol	/^    function getTimestampbyRequestIDandIndex(uint256 _requestID, uint256 _index) external view returns (uint256);$/;"	f
+getUintVar	src/Dependencies/ITellor.sol	/^    function getUintVar(bytes32 _data) external view returns (uint256);$/;"	f
+for	src/Dependencies/ITellor.sol	/^     * @dev Getter function for next requestId on queue\/request with highest payout at time the function is called$/;"	f
+getVariablesOnDeck	src/Dependencies/ITellor.sol	/^    function getVariablesOnDeck() external view returns (uint256, uint256, string memory);$/;"	f
+isInDispute	src/Dependencies/ITellor.sol	/^    function isInDispute(uint256 _requestId, uint256 _timestamp) external view returns (bool);$/;"	f
+retrieveData	src/Dependencies/ITellor.sol	/^    function retrieveData(uint256 _requestId, uint256 _timestamp) external view returns (uint256);$/;"	f
+totalSupply	src/Dependencies/ITellor.sol	/^    function totalSupply() external view returns (uint256);$/;"	f
+log	src/Dependencies/console.sol	/^    function log() internal view {$/;"	f
+logInt	src/Dependencies/console.sol	/^    function logInt(int256 p0) internal view {$/;"	f
+logUint	src/Dependencies/console.sol	/^    function logUint(uint256 p0) internal view {$/;"	f
+logString	src/Dependencies/console.sol	/^    function logString(string memory p0) internal view {$/;"	f
+logBool	src/Dependencies/console.sol	/^    function logBool(bool p0) internal view {$/;"	f
+logAddress	src/Dependencies/console.sol	/^    function logAddress(address p0) internal view {$/;"	f
+logBytes	src/Dependencies/console.sol	/^    function logBytes(bytes memory p0) internal view {$/;"	f
+logByte	src/Dependencies/console.sol	/^    function logByte(bytes1 p0) internal view {$/;"	f
+logBytes1	src/Dependencies/console.sol	/^    function logBytes1(bytes1 p0) internal view {$/;"	f
+logBytes2	src/Dependencies/console.sol	/^    function logBytes2(bytes2 p0) internal view {$/;"	f
+logBytes3	src/Dependencies/console.sol	/^    function logBytes3(bytes3 p0) internal view {$/;"	f
+logBytes4	src/Dependencies/console.sol	/^    function logBytes4(bytes4 p0) internal view {$/;"	f
+logBytes5	src/Dependencies/console.sol	/^    function logBytes5(bytes5 p0) internal view {$/;"	f
+logBytes6	src/Dependencies/console.sol	/^    function logBytes6(bytes6 p0) internal view {$/;"	f
+logBytes7	src/Dependencies/console.sol	/^    function logBytes7(bytes7 p0) internal view {$/;"	f
+logBytes8	src/Dependencies/console.sol	/^    function logBytes8(bytes8 p0) internal view {$/;"	f
+logBytes9	src/Dependencies/console.sol	/^    function logBytes9(bytes9 p0) internal view {$/;"	f
+logBytes10	src/Dependencies/console.sol	/^    function logBytes10(bytes10 p0) internal view {$/;"	f
+logBytes11	src/Dependencies/console.sol	/^    function logBytes11(bytes11 p0) internal view {$/;"	f
+logBytes12	src/Dependencies/console.sol	/^    function logBytes12(bytes12 p0) internal view {$/;"	f
+logBytes13	src/Dependencies/console.sol	/^    function logBytes13(bytes13 p0) internal view {$/;"	f
+logBytes14	src/Dependencies/console.sol	/^    function logBytes14(bytes14 p0) internal view {$/;"	f
+logBytes15	src/Dependencies/console.sol	/^    function logBytes15(bytes15 p0) internal view {$/;"	f
+logBytes16	src/Dependencies/console.sol	/^    function logBytes16(bytes16 p0) internal view {$/;"	f
+logBytes17	src/Dependencies/console.sol	/^    function logBytes17(bytes17 p0) internal view {$/;"	f
+logBytes18	src/Dependencies/console.sol	/^    function logBytes18(bytes18 p0) internal view {$/;"	f
+logBytes19	src/Dependencies/console.sol	/^    function logBytes19(bytes19 p0) internal view {$/;"	f
+logBytes20	src/Dependencies/console.sol	/^    function logBytes20(bytes20 p0) internal view {$/;"	f
+logBytes21	src/Dependencies/console.sol	/^    function logBytes21(bytes21 p0) internal view {$/;"	f
+logBytes22	src/Dependencies/console.sol	/^    function logBytes22(bytes22 p0) internal view {$/;"	f
+logBytes23	src/Dependencies/console.sol	/^    function logBytes23(bytes23 p0) internal view {$/;"	f
+logBytes24	src/Dependencies/console.sol	/^    function logBytes24(bytes24 p0) internal view {$/;"	f
+logBytes25	src/Dependencies/console.sol	/^    function logBytes25(bytes25 p0) internal view {$/;"	f
+logBytes26	src/Dependencies/console.sol	/^    function logBytes26(bytes26 p0) internal view {$/;"	f
+logBytes27	src/Dependencies/console.sol	/^    function logBytes27(bytes27 p0) internal view {$/;"	f
+logBytes28	src/Dependencies/console.sol	/^    function logBytes28(bytes28 p0) internal view {$/;"	f
+logBytes29	src/Dependencies/console.sol	/^    function logBytes29(bytes29 p0) internal view {$/;"	f
+logBytes30	src/Dependencies/console.sol	/^    function logBytes30(bytes30 p0) internal view {$/;"	f
+logBytes31	src/Dependencies/console.sol	/^    function logBytes31(bytes31 p0) internal view {$/;"	f
+logBytes32	src/Dependencies/console.sol	/^    function logBytes32(bytes32 p0) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, uint256 p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, string memory p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, bool p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, address p2) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, uint256 p1, address p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, string memory p1, address p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, bool p1, address p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(uint256 p0, address p1, address p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, uint256 p1, address p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, string memory p1, address p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, bool p1, address p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(string memory p0, address p1, address p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, uint256 p1, address p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, string memory p1, address p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, bool p1, address p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(bool p0, address p1, address p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, uint256 p1, address p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, string memory p1, address p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, bool p1, address p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, uint256 p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, uint256 p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, uint256 p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, uint256 p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, string memory p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, string memory p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, string memory p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, string memory p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, bool p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, bool p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, bool p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, bool p2, address p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, address p2, uint256 p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, address p2, string memory p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, address p2, bool p3) internal view {$/;"	f
+log	src/Dependencies/console.sol	/^    function log(address p0, address p1, address p2, address p3) internal view {$/;"	f
+Ownable	src/Dependencies/Ownable.sol	/^contract Ownable {$/;"	c
+OwnershipTransferred	src/Dependencies/Ownable.sol	/^    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);$/;"	e
+owner	src/Dependencies/Ownable.sol	/^    function owner() public view returns (address) {$/;"	f
+isOwner	src/Dependencies/Ownable.sol	/^    function isOwner() public view returns (bool) {$/;"	f
+is	src/Dependencies/Ownable.sol	/^     * NOTE: This function is not safe, as it doesn’t check owner is calling it.$/;"	f
+_renounceOwnership	src/Dependencies/Ownable.sol	/^    function _renounceOwnership() internal {$/;"	f
+_min	src/Dependencies/LiquityMath.sol	/^    function _min(uint256 _a, uint256 _b) internal pure returns (uint256) {$/;"	f
+_max	src/Dependencies/LiquityMath.sol	/^    function _max(uint256 _a, uint256 _b) internal pure returns (uint256) {$/;"	f
+decMul	src/Dependencies/LiquityMath.sol	/^    function decMul(uint256 x, uint256 y) internal pure returns (uint256 decProd) {$/;"	f
+for	src/Dependencies/LiquityMath.sol	/^    * _decPow: Exponentiation function for 18-digit decimal base, and integer exponent n.$/;"	f
+1	src/Dependencies/LiquityMath.sol	/^    * In function 1), the decayed base rate will be 0 for 1000 years or > 1000 years$/;"	f
+2	src/Dependencies/LiquityMath.sol	/^    * In function 2), the difference in tokens issued at 1000 years and any time > 1000 years, will be negligible$/;"	f
+_decPow	src/Dependencies/LiquityMath.sol	/^    function _decPow(uint256 _base, uint256 _minutes) internal pure returns (uint256) {$/;"	f
+_getAbsoluteDifference	src/Dependencies/LiquityMath.sol	/^    function _getAbsoluteDifference(uint256 _a, uint256 _b) internal pure returns (uint256) {$/;"	f
+_computeNominalCR	src/Dependencies/LiquityMath.sol	/^    function _computeNominalCR(uint256 _coll, uint256 _debt) internal pure returns (uint256) {$/;"	f
+_computeCR	src/Dependencies/LiquityMath.sol	/^    function _computeCR(uint256 _coll, uint256 _debt, uint256 _price) internal pure returns (uint256) {$/;"	f
+BaseMath	src/Dependencies/BaseMath.sol	/^contract BaseMath {$/;"	c
+add	src/Dependencies/SafeMath.sol	/^    function add(uint256 a, uint256 b) internal pure returns (uint256) {$/;"	f
+sub	src/Dependencies/SafeMath.sol	/^    function sub(uint256 a, uint256 b) internal pure returns (uint256) {$/;"	f
+sub	src/Dependencies/SafeMath.sol	/^    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {$/;"	f
+mul	src/Dependencies/SafeMath.sol	/^    function mul(uint256 a, uint256 b) internal pure returns (uint256) {$/;"	f
+uses	src/Dependencies/SafeMath.sol	/^     * Counterpart to Solidity's `\/` operator. Note: this function uses a$/;"	f
+div	src/Dependencies/SafeMath.sol	/^    function div(uint256 a, uint256 b) internal pure returns (uint256) {$/;"	f
+uses	src/Dependencies/SafeMath.sol	/^     * Counterpart to Solidity's `\/` operator. Note: this function uses a$/;"	f
+div	src/Dependencies/SafeMath.sol	/^    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {$/;"	f
+uses	src/Dependencies/SafeMath.sol	/^     * Counterpart to Solidity's `%` operator. This function uses a `revert`$/;"	f
+mod	src/Dependencies/SafeMath.sol	/^    function mod(uint256 a, uint256 b) internal pure returns (uint256) {$/;"	f
+uses	src/Dependencies/SafeMath.sol	/^     * Counterpart to Solidity's `%` operator. This function uses a `revert`$/;"	f
+mod	src/Dependencies/SafeMath.sol	/^    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {$/;"	f
+decimals	src/Dependencies/AggregatorV3Interface.sol	/^    function decimals() external view returns (uint8);$/;"	f
+description	src/Dependencies/AggregatorV3Interface.sol	/^    function description() external view returns (string memory);$/;"	f
+version	src/Dependencies/AggregatorV3Interface.sol	/^    function version() external view returns (uint256);$/;"	f
+getRoundData	src/Dependencies/AggregatorV3Interface.sol	/^    function getRoundData(uint80 _roundId)$/;"	f
+latestRoundData	src/Dependencies/AggregatorV3Interface.sol	/^    function latestRoundData()$/;"	f
+for	src/SortedTroves.sol	/^* - Public functions with parameters have been made internal to save gas, and given an external wrapper function for external access$/;"	f
+SortedTroves	src/SortedTroves.sol	/^contract SortedTroves is Ownable, CheckContract, ISortedTroves {$/;"	c
+TroveManagerAddressChanged	src/SortedTroves.sol	/^    event TroveManagerAddressChanged(address _troveManagerAddress);$/;"	e
+BorrowerOperationsAddressChanged	src/SortedTroves.sol	/^    event BorrowerOperationsAddressChanged(address _borrowerOperationsAddress);$/;"	e
+NodeAdded	src/SortedTroves.sol	/^    event NodeAdded(address _id, uint256 _NICR);$/;"	e
+NodeRemoved	src/SortedTroves.sol	/^    event NodeRemoved(address _id);$/;"	e
+struct Node	src/SortedTroves.sol	/^    struct Node {$/;"	v
+struct Data	src/SortedTroves.sol	/^    struct Data {$/;"	v
+setParams	src/SortedTroves.sol	/^    function setParams(uint256 _size, address _troveManagerAddress, address _borrowerOperationsAddress)$/;"	f
+insert	src/SortedTroves.sol	/^    function insert(address _id, uint256 _NICR, address _prevId, address _nextId) external override {$/;"	f
+_insert	src/SortedTroves.sol	/^    function _insert(ITroveManager _troveManager, address _id, uint256 _NICR, address _prevId, address _nextId)$/;"	f
+remove	src/SortedTroves.sol	/^    function remove(address _id) external override {$/;"	f
+_remove	src/SortedTroves.sol	/^    function _remove(address _id) internal {$/;"	f
+reInsert	src/SortedTroves.sol	/^    function reInsert(address _id, uint256 _newNICR, address _prevId, address _nextId) external override {$/;"	f
+contains	src/SortedTroves.sol	/^    function contains(address _id) public view override returns (bool) {$/;"	f
+isFull	src/SortedTroves.sol	/^    function isFull() public view override returns (bool) {$/;"	f
+isEmpty	src/SortedTroves.sol	/^    function isEmpty() public view override returns (bool) {$/;"	f
+getSize	src/SortedTroves.sol	/^    function getSize() external view override returns (uint256) {$/;"	f
+getMaxSize	src/SortedTroves.sol	/^    function getMaxSize() external view override returns (uint256) {$/;"	f
+getFirst	src/SortedTroves.sol	/^    function getFirst() external view override returns (address) {$/;"	f
+getLast	src/SortedTroves.sol	/^    function getLast() external view override returns (address) {$/;"	f
+getNext	src/SortedTroves.sol	/^    function getNext(address _id) external view override returns (address) {$/;"	f
+getPrev	src/SortedTroves.sol	/^    function getPrev(address _id) external view override returns (address) {$/;"	f
+validInsertPosition	src/SortedTroves.sol	/^    function validInsertPosition(uint256 _NICR, address _prevId, address _nextId)$/;"	f
+_validInsertPosition	src/SortedTroves.sol	/^    function _validInsertPosition(ITroveManager _troveManager, uint256 _NICR, address _prevId, address _nextId)$/;"	f
+_descendList	src/SortedTroves.sol	/^    function _descendList(ITroveManager _troveManager, uint256 _NICR, address _startId)$/;"	f
+_ascendList	src/SortedTroves.sol	/^    function _ascendList(ITroveManager _troveManager, uint256 _NICR, address _startId)$/;"	f
+findInsertPosition	src/SortedTroves.sol	/^    function findInsertPosition(uint256 _NICR, address _prevId, address _nextId)$/;"	f
+_findInsertPosition	src/SortedTroves.sol	/^    function _findInsertPosition(ITroveManager _troveManager, uint256 _NICR, address _prevId, address _nextId)$/;"	f
+_requireCallerIsTroveManager	src/SortedTroves.sol	/^    function _requireCallerIsTroveManager() internal view {$/;"	f
+_requireCallerIsBOorTroveM	src/SortedTroves.sol	/^    function _requireCallerIsBOorTroveM(ITroveManager _troveManager) internal view {$/;"	f
+CollSurplusPool	src/CollSurplusPool.sol	/^contract CollSurplusPool is Ownable, CheckContract, ICollSurplusPool {$/;"	c
+BorrowerOperationsAddressChanged	src/CollSurplusPool.sol	/^    event BorrowerOperationsAddressChanged(address _newBorrowerOperationsAddress);$/;"	e
+TroveManagerAddressChanged	src/CollSurplusPool.sol	/^    event TroveManagerAddressChanged(address _newTroveManagerAddress);$/;"	e
+ActivePoolAddressChanged	src/CollSurplusPool.sol	/^    event ActivePoolAddressChanged(address _newActivePoolAddress);$/;"	e
+CollBalanceUpdated	src/CollSurplusPool.sol	/^    event CollBalanceUpdated(address indexed _account, uint256 _newBalance);$/;"	e
+EtherSent	src/CollSurplusPool.sol	/^    event EtherSent(address _to, uint256 _amount);$/;"	e
+setAddresses	src/CollSurplusPool.sol	/^    function setAddresses(address _borrowerOperationsAddress, address _troveManagerAddress, address _activePoolAddress)$/;"	f
+getETH	src/CollSurplusPool.sol	/^    function getETH() external view override returns (uint256) {$/;"	f
+getCollateral	src/CollSurplusPool.sol	/^    function getCollateral(address _account) external view override returns (uint256) {$/;"	f
+accountSurplus	src/CollSurplusPool.sol	/^    function accountSurplus(address _account, uint256 _amount) external override {$/;"	f
+claimColl	src/CollSurplusPool.sol	/^    function claimColl(address _account) external override {$/;"	f
+_requireCallerIsBorrowerOperations	src/CollSurplusPool.sol	/^    function _requireCallerIsBorrowerOperations() internal view {$/;"	f
+_requireCallerIsTroveManager	src/CollSurplusPool.sol	/^    function _requireCallerIsTroveManager() internal view {$/;"	f
+_requireCallerIsActivePool	src/CollSurplusPool.sol	/^    function _requireCallerIsActivePool() internal view {$/;"	f
+ERC20Mock	src/LPRewards/TestContracts/ERC20Mock.sol	/^contract ERC20Mock is ERC20 {$/;"	c
+mint	src/LPRewards/TestContracts/ERC20Mock.sol	/^    function mint(address account, uint256 amount) public {$/;"	f
+burn	src/LPRewards/TestContracts/ERC20Mock.sol	/^    function burn(address account, uint256 amount) public {$/;"	f
+transferInternal	src/LPRewards/TestContracts/ERC20Mock.sol	/^    function transferInternal(address from, address to, uint256 value) public {$/;"	f
+approveInternal	src/LPRewards/TestContracts/ERC20Mock.sol	/^    function approveInternal(address owner, address spender, uint256 value) public {$/;"	f
+stake	src/LPRewards/Interfaces/ILPTokenWrapper.sol	/^    function stake(uint256 amount) external;$/;"	f
+withdraw	src/LPRewards/Interfaces/ILPTokenWrapper.sol	/^    function withdraw(uint256 amount) external;$/;"	f
+totalSupply	src/LPRewards/Interfaces/ILPTokenWrapper.sol	/^    function totalSupply() external view returns (uint256);$/;"	f
+balanceOf	src/LPRewards/Interfaces/ILPTokenWrapper.sol	/^    function balanceOf(address account) external view returns (uint256);$/;"	f
+setParams	src/LPRewards/Interfaces/IUnipool.sol	/^    function setParams(address _lqtyTokenAddress, address _uniTokenAddress, uint256 _duration) external;$/;"	f
+lastTimeRewardApplicable	src/LPRewards/Interfaces/IUnipool.sol	/^    function lastTimeRewardApplicable() external view returns (uint256);$/;"	f
+rewardPerToken	src/LPRewards/Interfaces/IUnipool.sol	/^    function rewardPerToken() external view returns (uint256);$/;"	f
+earned	src/LPRewards/Interfaces/IUnipool.sol	/^    function earned(address account) external view returns (uint256);$/;"	f
+withdrawAndClaim	src/LPRewards/Interfaces/IUnipool.sol	/^    function withdrawAndClaim() external;$/;"	f
+claimReward	src/LPRewards/Interfaces/IUnipool.sol	/^    function claimReward() external;$/;"	f
+notifyRewardAmount	src/LPRewards/Interfaces/IUnipool.sol	/^    \/\/function notifyRewardAmount(uint256 reward) external;$/;"	f
+LPTokenWrapper	src/LPRewards/Unipool.sol	/^contract LPTokenWrapper is ILPTokenWrapper {$/;"	c
+totalSupply	src/LPRewards/Unipool.sol	/^    function totalSupply() public view override returns (uint256) {$/;"	f
+balanceOf	src/LPRewards/Unipool.sol	/^    function balanceOf(address account) public view override returns (uint256) {$/;"	f
+stake	src/LPRewards/Unipool.sol	/^    function stake(uint256 amount) public virtual override {$/;"	f
+withdraw	src/LPRewards/Unipool.sol	/^    function withdraw(uint256 amount) public virtual override {$/;"	f
+that	src/LPRewards/Unipool.sol	/^ * That also means that the start time for the program will be the event that occurs first:$/;"	e
+Unipool	src/LPRewards/Unipool.sol	/^contract Unipool is LPTokenWrapper, Ownable, CheckContract, IUnipool {$/;"	c
+LQTYTokenAddressChanged	src/LPRewards/Unipool.sol	/^    event LQTYTokenAddressChanged(address _lqtyTokenAddress);$/;"	e
+UniTokenAddressChanged	src/LPRewards/Unipool.sol	/^    event UniTokenAddressChanged(address _uniTokenAddress);$/;"	e
+RewardAdded	src/LPRewards/Unipool.sol	/^    event RewardAdded(uint256 reward);$/;"	e
+Staked	src/LPRewards/Unipool.sol	/^    event Staked(address indexed user, uint256 amount);$/;"	e
+Withdrawn	src/LPRewards/Unipool.sol	/^    event Withdrawn(address indexed user, uint256 amount);$/;"	e
+RewardPaid	src/LPRewards/Unipool.sol	/^    event RewardPaid(address indexed user, uint256 reward);$/;"	e
+setParams	src/LPRewards/Unipool.sol	/^    function setParams(address _lqtyTokenAddress, address _uniTokenAddress, uint256 _duration)$/;"	f
+lastTimeRewardApplicable	src/LPRewards/Unipool.sol	/^    function lastTimeRewardApplicable() public view override returns (uint256) {$/;"	f
+rewardPerToken	src/LPRewards/Unipool.sol	/^    function rewardPerToken() public view override returns (uint256) {$/;"	f
+earned	src/LPRewards/Unipool.sol	/^    function earned(address account) public view override returns (uint256) {$/;"	f
+stake	src/LPRewards/Unipool.sol	/^    function stake(uint256 amount) public override {$/;"	f
+withdraw	src/LPRewards/Unipool.sol	/^    function withdraw(uint256 amount) public override {$/;"	f
+withdrawAndClaim	src/LPRewards/Unipool.sol	/^    function withdrawAndClaim() external override {$/;"	f
+claimReward	src/LPRewards/Unipool.sol	/^    function claimReward() public override {$/;"	f
+_notifyRewardAmount	src/LPRewards/Unipool.sol	/^    function _notifyRewardAmount(uint256 _reward, uint256 _duration) internal {$/;"	f
+_updatePeriodFinish	src/LPRewards/Unipool.sol	/^    function _updatePeriodFinish() internal {$/;"	f
+_updateReward	src/LPRewards/Unipool.sol	/^    function _updateReward() internal {$/;"	f
+_updateAccountReward	src/LPRewards/Unipool.sol	/^    function _updateAccountReward(address account) internal {$/;"	f
+returns	src/LPRewards/Dependencies/Address.sol	/^     * It is unsafe to assume that an address for which this function returns$/;"	f
+isContract	src/LPRewards/Dependencies/Address.sol	/^    function isContract(address account) internal view returns (bool) {$/;"	f
+sendValue	src/LPRewards/Dependencies/Address.sol	/^    function sendValue(address payable recipient, uint256 amount) internal {$/;"	f
+call	src/LPRewards/Dependencies/Address.sol	/^     * @dev Performs a Solidity function call using a low level `call`. A$/;"	f
+call	src/LPRewards/Dependencies/Address.sol	/^     * plain`call` is an unsafe replacement for a function call: use this$/;"	f
+instead	src/LPRewards/Dependencies/Address.sol	/^     * function instead.$/;"	f
+calls	src/LPRewards/Dependencies/Address.sol	/^     * function (like regular Solidity function calls).$/;"	f
+functionCall	src/LPRewards/Dependencies/Address.sol	/^    function functionCall(address target, bytes memory data) internal returns (bytes memory) {$/;"	f
+functionCall	src/LPRewards/Dependencies/Address.sol	/^    function functionCall(address target, bytes memory data, string memory errorMessage)$/;"	f
+must	src/LPRewards/Dependencies/Address.sol	/^     * - the called Solidity function must be `payable`.$/;"	f
+functionCallWithValue	src/LPRewards/Dependencies/Address.sol	/^    function functionCallWithValue(address target, bytes memory data, uint256 value) internal returns (bytes memory) {$/;"	f
+functionCallWithValue	src/LPRewards/Dependencies/Address.sol	/^    function functionCallWithValue(address target, bytes memory data, uint256 value, string memory errorMessage)$/;"	f
+functionStaticCall	src/LPRewards/Dependencies/Address.sol	/^    function functionStaticCall(address target, bytes memory data) internal view returns (bytes memory) {$/;"	f
+functionStaticCall	src/LPRewards/Dependencies/Address.sol	/^    function functionStaticCall(address target, bytes memory data, string memory errorMessage)$/;"	f
+_verifyCallResult	src/LPRewards/Dependencies/Address.sol	/^    function _verifyCallResult(bool success, bytes memory returndata, string memory errorMessage)$/;"	f
+safeTransfer	src/LPRewards/Dependencies/SafeERC20.sol	/^    function safeTransfer(IERC20 token, address to, uint256 value) internal {$/;"	f
+safeTransferFrom	src/LPRewards/Dependencies/SafeERC20.sol	/^    function safeTransferFrom(IERC20 token, address from, address to, uint256 value) internal {$/;"	f
+has	src/LPRewards/Dependencies/SafeERC20.sol	/^     * @dev Deprecated. This function has issues similar to the ones found in$/;"	f
+safeApprove	src/LPRewards/Dependencies/SafeERC20.sol	/^    function safeApprove(IERC20 token, address spender, uint256 value) internal {$/;"	f
+safeIncreaseAllowance	src/LPRewards/Dependencies/SafeERC20.sol	/^    function safeIncreaseAllowance(IERC20 token, address spender, uint256 value) internal {$/;"	f
+safeDecreaseAllowance	src/LPRewards/Dependencies/SafeERC20.sol	/^    function safeDecreaseAllowance(IERC20 token, address spender, uint256 value) internal {$/;"	f
+call	src/LPRewards/Dependencies/SafeERC20.sol	/^     * @dev Imitates a Solidity high-level call (i.e. a regular function call to a contract), relaxing the requirement$/;"	f
+_callOptionalReturn	src/LPRewards/Dependencies/SafeERC20.sol	/^    function _callOptionalReturn(IERC20 token, bytes memory data) private {$/;"	f
